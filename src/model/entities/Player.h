@@ -9,7 +9,9 @@
 #include "Entity.h"
 
 class Player : Entity{
-
+    public Player(int ptVie, pair pos) {
+        super(ptVie,pos);
+    }
 };
 
 
