@@ -7,8 +7,13 @@
 
 
 class Tile {
+private :
+    pair<int, int> pos;
 
+public :
+    isBreakable(Tile tile);
 };
+
 
 
 #endif //PROJET_TILE_H
