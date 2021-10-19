@@ -3,3 +3,8 @@
 //
 
 #include "Player.h"
+
+Player::Player(int _ptVie, pair _pos) {
+    ptVie = _ptVie;
+    pos = _pos;
+}
