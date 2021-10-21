@@ -11,8 +11,18 @@ bool Tile::isBreakable(Tile tile) {
         case "Breakable_Wall":
             return true;
             break;
+        default:
+            break;
     }
+}
 
+
+pair Tile::setPosition(pair position){
+    pos=position;
+
+}
+pair Tile::getPosition(Tile tile){
+    return pos;
 
 }
 

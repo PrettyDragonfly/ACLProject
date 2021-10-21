@@ -12,6 +12,10 @@ private :
 
 public :
     isBreakable(Tile tile);
+
+    setPosition(pair pos);
+
+    getPosition(pair pos);
 };
 
 
