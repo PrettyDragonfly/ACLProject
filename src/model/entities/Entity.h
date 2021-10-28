@@ -11,6 +11,8 @@ private:
 public:
     pair getPosition();
     bool canMove(char Direction);
+    int getPtVie();
+    void setPtVie(int newPtVie);
 };
 
 
