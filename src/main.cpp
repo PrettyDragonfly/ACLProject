@@ -1,6 +1,8 @@
 #include <iostream>
+#include "model/Game.h"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    Game g;
+    g.play();
     return 0;
 }
