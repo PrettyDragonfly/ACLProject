@@ -6,8 +6,9 @@
  *
  */
 Map::Map() {
-    for(int i =0; i< size; i++)
-        for(int j=0; j<size; j++)
+    int i,j;
+    for(i = 0; i < size; i++)
+        for(j = 0; j < size; j++)
             map[i][j] = new Floor();
 }
 
@@ -20,8 +21,9 @@ Map::Map(int file_number){
 }
 
 Map::~Map() {
-    for(int i =0; i< size; i++)
-        for(int j=0; j<size; j++)
+    int i,j;
+    for(i = 0; i < size; i++)
+        for(j = 0; j < size; j++)
             delete map[i][j];
 }
 

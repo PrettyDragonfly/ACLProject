@@ -3,7 +3,6 @@
 
 World::World(){
     player = new Player();
-    map = Map();
 }
 
 /**

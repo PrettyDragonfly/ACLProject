@@ -6,8 +6,7 @@
 
 class Player : public Entity{
 public:
-    int get_y_position() override;
-    int get_x_position() override;
+    Player();
 };
 
 
