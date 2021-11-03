@@ -23,3 +23,7 @@ Entity* World::get_player() {
 World::~World() {
     delete player;
 }
+
+Map World::get_map() {
+    return map;
+}

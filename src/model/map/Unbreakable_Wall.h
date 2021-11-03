@@ -8,8 +8,10 @@
 
 #include "Tile.h"
 
-class Unbreakable_Wall : Tile{
-
+class Unbreakable_Wall : public Tile{
+public:
+    Unbreakable_Wall();
+    bool is_walkable() override;
 };
 
 

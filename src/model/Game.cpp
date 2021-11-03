@@ -7,6 +7,7 @@ void Game::play() {
         im->process_input();
         world.update();
         std::cout << world.get_player();
+        std::cout << world.get_map();
         if (world.get_player()->get_health() <= 0)
             gameover = true;
     }
@@ -24,3 +25,4 @@ Entity * Game::get_player() {
 Game::~Game() {
     delete im;
 }
+

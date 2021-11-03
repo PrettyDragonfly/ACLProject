@@ -7,6 +7,7 @@
 
 
 #include "Tile.h"
+#include <ostream>
 
 class Map {
     static const int size = 10;
@@ -16,6 +17,8 @@ public:
     Map(int file_number);
     ~Map();
     Tile* get_tile(int x, int y);
+
+    friend std::ostream & operator<<(std::ostream &os, const Map map);
 };
 
 

@@ -1,5 +1,6 @@
 #include "Map.h"
 #include "Floor.h"
+#include "Unbreakable_Wall.h"
 
 /**
  * @brief Map constructor with no specified file then simple floor map
@@ -8,7 +9,8 @@
 Map::Map() {
     int i,j;
     for(i = 0; i < size; i++)
-        for(j = 0; j < size; j++)
+        map[i][0] = new Floor();
+        for(j = 1; j < size; j++)
             map[i][j] = new Floor();
 }
 
@@ -37,5 +39,24 @@ Tile *Map::get_tile(int x, int y) {
     if (x >= 0 && x < size && y >= 0 && y < size){
         return map[x][y];
     }
+}
+
+
+std::ostream &operator<<(std::ostream &os, const Map map) {
+    std::string map_string;
+    for (int i = 0; i < map.size; i++){
+        for (int j = 0; j < map.size; j++){
+            Tile* c = map.map[i][j];
+            if(c->is_walkable()){
+                map_string.append("O  ");
+            }
+            else{
+                map_string.append("X  ");
+            }
+        }
+        map_string.append("\n");
+    }
+    os << map_string << std::endl;
+    return os;
 }
 

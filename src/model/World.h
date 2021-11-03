@@ -13,6 +13,7 @@ public:
     ~World();
     void update();
     Entity* get_player();
+    Map get_map();
 };
 
 
