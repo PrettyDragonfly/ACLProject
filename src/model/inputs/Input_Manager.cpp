@@ -34,7 +34,7 @@ void Input_Manager::process_input(){
 }
 
 void Input_Manager::get_input() {
-    std::cout << "Enter input : ";
+    std::cout << "Enter input (ZQSD to move, X to quit) : ";
     std::cin >> input;
 }
 

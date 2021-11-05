@@ -24,6 +24,6 @@ World::~World() {
     delete player;
 }
 
-Map World::get_map() {
+Map& World::get_map() {
     return map;
 }

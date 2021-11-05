@@ -4,7 +4,6 @@
 
 class Tile {
 public:
-    ~Tile();
     virtual bool is_walkable() = 0;
 };
 

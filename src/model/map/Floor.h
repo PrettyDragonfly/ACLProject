@@ -3,10 +3,12 @@
 
 
 #include "Tile.h"
+#include <ostream>
 
 class Floor : public Tile{
 public:
     bool is_walkable() override;
+    friend std::ostream& operator<<(std::ostream& os, Floor f);
 };
 
 
