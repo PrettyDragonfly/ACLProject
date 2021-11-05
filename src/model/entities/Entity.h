@@ -5,11 +5,11 @@
 using namespace std;
 
 class Entity {
-private:
+protected:
     pair<int, int> pos;
     int ptVie;
 public:
-    pair getPosition();
+    pair<int, int> getPosition();
     bool canMove(char Direction);
     int getPtVie();
     void setPtVie(int newPtVie);

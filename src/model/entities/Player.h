@@ -7,7 +7,7 @@
 
 class Player : Entity{
 public:
-    Player(int _ptVie, pair _pos);
+    Player(int _ptVie, pair<int, int> _pos);
 };
 
 

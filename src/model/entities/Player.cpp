@@ -4,7 +4,7 @@
 
 #include "Player.h"
 
-Player::Player(int _ptVie, pair _pos) {
+Player::Player(int _ptVie, pair<int, int> _pos) {
     ptVie = _ptVie;
     pos = _pos;
 }
