@@ -4,7 +4,4 @@
 
 #include "Player.h"
 
-Player::Player(int _ptVie, pair<int, int> _pos) {
-    ptVie = _ptVie;
-    pos = _pos;
-}
+Player::Player(pair<int, int> _pos, int _ptVie) : Entity(_pos, _ptVie) {}
