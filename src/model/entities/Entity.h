@@ -19,7 +19,7 @@ public:
     void move(pair<int, int> newPos);
     ~Entity();
 
-    //friend ostream & operator<<(std::ostream &os, const Entity *ent);
+    friend ostream & operator<<(ostream &os, const Entity *ent);
 };
 
 

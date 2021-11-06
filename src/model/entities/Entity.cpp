@@ -1,6 +1,7 @@
 //
 // Created by Camille on 19/10/2021.
 //
+#include <ostream>
 #include "Entity.h"
 #include "../map/Map.h"
 #include "../map/Tile.h"
@@ -24,16 +25,16 @@ bool Entity::canMove(char Direction) {
     Tile* tile;
     switch (Direction) {
         case 'Z':
-            tile = Map::get_tile(getPosition().first,getPosition().second-1);
+            tile = world.get_map.get_tile(getPosition().first,getPosition().second-1);
             break;
         case 'S':
-            tile = Map::get_tile(getPosition().first,getPosition().second+1);
+            tile = world.get_map.get_tile(getPosition().first,getPosition().second+1);
             break;
         case 'Q':
-            tile = Map::get_tile(getPosition().first-1, getPosition().second);
+            tile = world.get_map.get_tile(getPosition().first-1, getPosition().second);
             break;
         case 'D':
-            tile = Map::get_tile(getPosition().first+1, getPosition().second);
+            tile = world.get_map.get_tile(getPosition().first+1, getPosition().second);
             break;
     }
     /**
@@ -53,7 +54,7 @@ void Entity::set_health(int newHealth) {
 
 Entity::~Entity() {}
 
-/**ostream & operator<<(ostream &os, const Entity *ent) {
+ostream & operator<<(ostream &os, const Entity *ent) {
     os << "x: " << ent->pos.first << " y: " << ent->pos.second << " hp: " << ent->health << endl;
     return os;
-}**/
+}
