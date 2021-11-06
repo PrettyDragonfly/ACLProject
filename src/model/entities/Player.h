@@ -1,15 +1,13 @@
-//
-// Created by thifl on 17/10/2021.
-//
-
 #ifndef PROJET_PLAYER_H
 #define PROJET_PLAYER_H
 
 
 #include "Entity.h"
+#include <utility>
 
 class Player : Entity{
-
+public:
+    Player(pair<int, int> _pos, int _ptVie);
 };
 
 
