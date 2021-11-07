@@ -6,8 +6,16 @@
 #define PROJET_MAP_H
 
 
-class Map {
+#include "Tile.h"
 
+class Map {
+    static const int size = 10;
+    Tile* map[size][size];
+public:
+    Map();
+    Map(int file_number);
+    ~Map();
+    Tile* get_tile(int x, int y);
 };
 
 
