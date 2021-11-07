@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //
 // Created by Camille on 19/10/2021.
 //
