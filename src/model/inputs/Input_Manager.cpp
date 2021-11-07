@@ -14,6 +14,7 @@ void Input_Manager::process_input(){
     Entity* player = g->get_player();
     switch(std::toupper(input)){
         case 'Z':
+            //replace with canMove(Direction)
             player->move(0,-1);
             break;
         case 'Q':

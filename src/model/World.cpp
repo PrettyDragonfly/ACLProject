@@ -1,8 +1,9 @@
 #include "World.h"
 #include "entities/Player.h"
+#include <iostream>
 
 World::World(){
-
+    std::cout << "world create" << std::endl;
 }
 
 /**

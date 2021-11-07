@@ -3,6 +3,7 @@
 #include "entities/Player.h"
 
 void Game::play() {
+    std::cout << "Game create" << std::endl;
     while(!gameover){
         im->process_input();
         world.update();

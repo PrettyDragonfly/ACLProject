@@ -2,11 +2,14 @@
 // Created by Camille on 19/10/2021.
 //
 #include <ostream>
+#include <iostream>
 #include "Entity.h"
+#include "../map/Tile.h"
 
 using namespace std;
 
 Entity::Entity(pair<int, int> _pos, int _health) {
+    std::cout << "Entity create" << std::endl;
     pos = _pos;
     health = _health;
 }
@@ -18,8 +21,8 @@ pair<int, int> Entity::getPosition() {
 void Entity::move(pair<int, int> newPos) {
     pos = newPos;
 }
-/**
-bool Entity::canMove(char Direction) {
+
+/**bool Entity::canMove(char Direction) {
     Tile* tile;
     switch (Direction) {
         case 'Z':
@@ -35,12 +38,11 @@ bool Entity::canMove(char Direction) {
             tile = world.get_map.get_tile(getPosition().first+1, getPosition().second);
             break;
     }
-    /**
-    if (tile.is_breakable()) {
+    if (tile->is_walkable()) {
         move(tile.getPosition());
     }
-}
-**/
+}**/
+
 int Entity::get_health() {
     return health;
 }

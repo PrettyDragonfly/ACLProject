@@ -1,11 +1,13 @@
 #include "Map.h"
 #include "Floor.h"
+#include <iostream>
 
 /**
  * @brief Map constructor with no specified file then simple floor map
  *
  */
 Map::Map() {
+    std::cout << "Map create" << std::endl;
     int i,j;
     for(i = 0; i < size; i++)
         for(j = 0; j < size; j++)
