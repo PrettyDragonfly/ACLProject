@@ -2,7 +2,7 @@
 #include "entities/Player.h"
 
 World::World(){
-    player = new Player();
+
 }
 
 /**

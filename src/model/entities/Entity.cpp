@@ -3,8 +3,6 @@
 //
 #include <ostream>
 #include "Entity.h"
-#include "../map/Map.h"
-#include "../map/Tile.h"
 
 using namespace std;
 
@@ -20,7 +18,7 @@ pair<int, int> Entity::getPosition() {
 void Entity::move(pair<int, int> newPos) {
     pos = newPos;
 }
-
+/**
 bool Entity::canMove(char Direction) {
     Tile* tile;
     switch (Direction) {
@@ -41,9 +39,8 @@ bool Entity::canMove(char Direction) {
     if (tile.is_breakable()) {
         move(tile.getPosition());
     }
-    **/
 }
-
+**/
 int Entity::get_health() {
     return health;
 }
@@ -57,4 +54,8 @@ Entity::~Entity() {}
 ostream & operator<<(ostream &os, const Entity *ent) {
     os << "x: " << ent->pos.first << " y: " << ent->pos.second << " hp: " << ent->health << endl;
     return os;
+}
+
+void Entity::move(int x, int y) {
+    //Dummy function
 }

@@ -1,7 +1,6 @@
 #ifndef PROJET_WORLD_H
 #define PROJET_WORLD_H
 
-
 #include "map/Map.h"
 #include "entities/Entity.h"
 
