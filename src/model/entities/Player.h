@@ -5,8 +5,9 @@
 #include "Entity.h"
 #include <utility>
 
-class Player : Entity{
+class Player : public Entity{
 public:
+    Player();
     Player(pair<int, int> _pos, int _ptVie);
 };
 

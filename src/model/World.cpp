@@ -2,7 +2,7 @@
 #include "entities/Player.h"
 
 World::World(){
-
+    player = new Player(pair(0,0), 3);
 }
 
 /**
@@ -22,4 +22,8 @@ Entity* World::get_player() {
 
 World::~World() {
     delete player;
+}
+
+Map *World::get_map() {
+    return &map;
 }

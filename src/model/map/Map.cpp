@@ -39,3 +39,9 @@ Tile *Map::get_tile(int x, int y) {
     }
 }
 
+std::ostream &operator<<(std::ostream &os, Map& map) {
+
+
+    return os;
+}
+

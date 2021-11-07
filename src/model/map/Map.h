@@ -5,7 +5,7 @@
 #ifndef PROJET_MAP_H
 #define PROJET_MAP_H
 
-
+#include <ostream>
 #include "Tile.h"
 
 class Map {
@@ -16,6 +16,8 @@ public:
     Map(int file_number);
     ~Map();
     Tile* get_tile(int x, int y);
+
+    friend std::ostream& operator<<(std::ostream& os, Map& map);
 };
 
 
