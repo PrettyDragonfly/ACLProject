@@ -1,6 +1,6 @@
 #include "Tile.h"
 
-bool Tile::isBreakable(Tile tile) {
+/**bool Tile::isBreakable(Tile tile) {
     switch(tile){
         case "Floor":
             return false;
@@ -14,15 +14,14 @@ bool Tile::isBreakable(Tile tile) {
         default:
             break;
     }
-}
+}**/
 
 
-pair Tile::setPosition(pair position){
+pair<int, int> Tile::setPosition(pair<int, int> position){
     pos=position;
-
 }
-pair Tile::getPosition(Tile tile){
-    return pos;
 
+pair<int, int> Tile::getPosition(){
+    return pos;
 }
 

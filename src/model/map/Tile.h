@@ -10,9 +10,9 @@ private :
     pair<int, int> pos;
 public:
     virtual bool is_walkable() = 0;
-    /**isBreakable(Tile tile);
-    setPosition(pair pos);
-    getPosition(pair pos);**/
+    //bool isBreakable(Tile tile);
+    pair<int, int> setPosition(pair<int, int> pos);
+    pair<int, int> getPosition();
 };
 
 #endif //PROJET_TILE_H
