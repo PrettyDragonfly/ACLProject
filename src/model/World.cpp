@@ -1,8 +1,10 @@
 #include "World.h"
 #include "entities/Player.h"
+#include <iostream>
 
 World::World(){
-    player = new Player();
+    map = new Map();
+    player = new Entity(pair(5,5), 10, this->map);
 }
 
 /**

@@ -2,6 +2,7 @@
 #include "Map.h"
 #include "Floor.h"
 #include "Unbreakable_Wall.h"
+#include <iostream>
 
 /**
  * @brief Map constructor with no specified file then simple floor map

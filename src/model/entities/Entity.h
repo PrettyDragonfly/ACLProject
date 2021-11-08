@@ -1,20 +1,29 @@
 #ifndef PROJET_ENTITY_H
 #define PROJET_ENTITY_H
-
-
+#include "../map/Map.h"
+#include <utility>
 #include <ostream>
 
+using namespace std;
+
 class Entity {
+protected:
+    pair<int, int> pos;
     int health;
-    int x, y;
+    Map* map;
 public:
-    Entity(int x_, int y_, int health_);
-    virtual ~Entity();
-    virtual int get_x_position();
-    virtual int get_y_position();
-    virtual int get_health();
+    Entity(pair<int, int> pos, int health, Map* map);
+    pair<int, int> getPosition();
+    bool canMove(char Direction);
     void move(int x, int y);
-    friend std::ostream & operator<<(std::ostream& os, const Entity* ent);
+    int get_health();
+    void set_health(int newHealth);
+    void move(pair<int, int> newPos);
+    ~Entity();
+
+    friend ostream & operator<<(ostream &os, const Entity *ent);
+
+
 };
 
 

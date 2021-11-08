@@ -1,4 +1,3 @@
 #include "Player.h"
 
-Player::Player() : Entity(0, 0, 3) {
-}
+Player::Player(pair<int, int> _pos, int _ptVie, Map* map) : Entity(_pos, _ptVie, map) {}
