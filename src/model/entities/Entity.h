@@ -1,5 +1,6 @@
 #ifndef PROJET_ENTITY_H
 #define PROJET_ENTITY_H
+#include "../map/Map.h"
 #include <utility>
 #include <ostream>
 
@@ -9,8 +10,9 @@ class Entity {
 protected:
     pair<int, int> pos;
     int health;
+    Map* map;
 public:
-    Entity(pair <int, int> pos, int health);
+    Entity(pair<int, int> pos, int health, Map* map);
     pair<int, int> getPosition();
     bool canMove(char Direction);
     void move(int x, int y);
@@ -20,6 +22,8 @@ public:
     ~Entity();
 
     friend ostream & operator<<(ostream &os, const Entity *ent);
+
+
 };
 
 

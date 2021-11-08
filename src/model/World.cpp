@@ -3,7 +3,8 @@
 #include <iostream>
 
 World::World(){
-    std::cout << "world create" << std::endl;
+    map = new Map();
+    player = new Entity(pair(5,5), 10, this->map);
 }
 
 /**

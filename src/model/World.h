@@ -5,7 +5,7 @@
 #include "entities/Entity.h"
 
 class World {
-    Map map;
+    Map *map;
     Entity* player;
 public:
     World();

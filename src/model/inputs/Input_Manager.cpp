@@ -12,7 +12,8 @@
 void Input_Manager::process_input(){
     get_input();
     Entity* player = g->get_player();
-    switch(std::toupper(input)){
+    player->canMove(std::toupper(input));
+    /**switch(std::toupper(input)){
         case 'Z':
             //replace with canMove(Direction)
             player->move(0,-1);
@@ -28,7 +29,7 @@ void Input_Manager::process_input(){
             break;
         default:
             std::cout << "Input inutile\n";
-    }
+    }**/
 }
 
 void Input_Manager::get_input() {
