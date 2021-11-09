@@ -1,14 +1,14 @@
-//
-// Created by Camille on 19/10/2021.
-//
 #include <ostream>
+#include <iostream>
 #include "Entity.h"
+#include "../map/Tile.h"
 
 using namespace std;
 
-Entity::Entity(pair<int, int> _pos, int _health) {
+Entity::Entity(pair<int, int> _pos, int _health, Map* _map) {
     pos = _pos;
     health = _health;
+    map = _map;
 }
 
 pair<int, int> Entity::getPosition() {
@@ -18,29 +18,30 @@ pair<int, int> Entity::getPosition() {
 void Entity::move(pair<int, int> newPos) {
     pos = newPos;
 }
-/**
+
 bool Entity::canMove(char Direction) {
-    Tile* tile;
+    Tile* tile = NULL;
     switch (Direction) {
         case 'Z':
-            tile = world.get_map.get_tile(getPosition().first,getPosition().second-1);
+            tile = map->get_tile(getPosition().first,getPosition().second-1);
             break;
         case 'S':
-            tile = world.get_map.get_tile(getPosition().first,getPosition().second+1);
+            tile = map->get_tile(getPosition().first,getPosition().second+1);
             break;
         case 'Q':
-            tile = world.get_map.get_tile(getPosition().first-1, getPosition().second);
+            tile = map->get_tile(getPosition().first-1, getPosition().second);
             break;
         case 'D':
-            tile = world.get_map.get_tile(getPosition().first+1, getPosition().second);
+            tile = map->get_tile(getPosition().first+1, getPosition().second);
             break;
+        default:
+            cout << "Input inutile\n";
     }
-    /**
-    if (tile.is_breakable()) {
-        move(tile.getPosition());
+    if (tile->is_walkable() != 0) {
+        move(tile->getPosition());
     }
 }
-**/
+
 int Entity::get_health() {
     return health;
 }

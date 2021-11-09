@@ -7,17 +7,18 @@
 
 #include <ostream>
 #include "Tile.h"
+#include <ostream>
 
 class Map {
-    static const int size = 10;
-    Tile* map[size][size];
+    int size = 10;
+    Tile*** map;
 public:
     Map();
     Map(int file_number);
     ~Map();
     Tile* get_tile(int x, int y);
-
-    friend std::ostream& operator<<(std::ostream& os, Map& map);
+    //TODO ASSIGNMENT OPERATOR
+    friend std::ostream & operator<<(std::ostream &os, Map map);
 };
 
 

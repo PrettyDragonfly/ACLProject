@@ -3,6 +3,7 @@
 //
 
 #include <iostream>
+#include <cstdlib>
 #include "Input_Manager.h"
 
 /**
@@ -12,8 +13,10 @@
 void Input_Manager::process_input(){
     get_input();
     Entity* player = g->get_player();
-    switch(std::toupper(input)){
+    player->canMove(std::toupper(input));
+    /**switch(std::toupper(input)){
         case 'Z':
+            //replace with canMove(Direction)
             player->move(0,-1);
             break;
         case 'Q':
@@ -25,20 +28,21 @@ void Input_Manager::process_input(){
         case 'D':
             player->move(1, 0);
             break;
+        case 'X':
+            exit(EXIT_SUCCESS);
         default:
             std::cout << "Input inutile\n";
-    }
+    }**/
 }
 
 void Input_Manager::get_input() {
-    std::cout << "Enter input : ";
+    std::cout << "Enter input (ZQSD to move, X to quit) : ";
     std::cin >> input;
 }
 
-Input_Manager::~Input_Manager() {}
+Input_Manager::~Input_Manager() = default;
 
-Input_Manager::Input_Manager() {
-}
+Input_Manager::Input_Manager() = default;
 
 void Input_Manager::set_game(Game *pGame) {
     g = pGame;

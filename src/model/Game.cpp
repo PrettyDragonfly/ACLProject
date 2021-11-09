@@ -25,3 +25,4 @@ Entity * Game::get_player() {
 Game::~Game() {
     delete im;
 }
+

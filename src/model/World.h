@@ -5,14 +5,14 @@
 #include "entities/Entity.h"
 
 class World {
-    Map map;
+    Map *map;
     Entity* player;
 public:
     World();
     ~World();
     void update();
     Entity* get_player();
-    Map* get_map();
+    Map & get_map();
 };
 
 
