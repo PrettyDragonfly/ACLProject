@@ -4,19 +4,24 @@
 #include "Unbreakable_Wall.h"
 
 /**
- * @brief Map constructor with no specified file then simple floor map
- *
+ * @brief Map constructor with no specified file then simple map
  */
 Map::Map() {
     std::cout << "Map constructor called\n";
     map = new Tile**[size];
     for (int i = 0; i < size; i++) {
         map[i] = new Tile*[size];
-        map[i][0] = new Unbreakable_Wall();
-        for (int j = 1; j < size-1; j++) {
-            map[i][j] = new Floor();
+        map[i][0] = new Unbreakable_Wall(pair(i, 0));
+        if (i == 0 || i == 9){
+            for(int j = 1; j< size-1; j++)
+                map[i][j] = new Unbreakable_Wall(pair(i,j));
         }
-        map[i][9] = new Unbreakable_Wall();
+        else {
+            for (int j = 1; j < size - 1; j++) {
+                map[i][j] = new Floor(pair(i, j));
+            }
+        }
+        map[i][9] = new Unbreakable_Wall(pair(i, 9));
     }
     //verify();
 }
@@ -48,17 +53,15 @@ Map::~Map() {
  * @return the tile from map(x,y)
  */
 Tile* Map::get_tile(int x, int y) {
-    //std::cout << x << " " << y << "\n";
     if (x >= 0 && x < size && y >= 0 && y < size){
         //std::cout << "youpi";
-        //return map[x][y];
+        return map[x][y];
     }
-    return new Floor();
 }
 
 std::ostream &operator<<(std::ostream &os, Map& map) {
-    for(int i = 0; i < map.size; i++){
-        for(int j = 0; j<map.size; j++){
+    for(int j = 0; j < map.size; j++){
+        for(int i = 0; i<map.size; i++){
             map.map[i][j]->show();
         }
         std::cout << "\n";

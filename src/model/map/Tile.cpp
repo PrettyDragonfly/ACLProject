@@ -24,3 +24,7 @@ pair<int, int> Tile::setPosition(pair<int, int> position){
 pair<int, int> Tile::getPosition(){
     return pos;
 }
+
+Tile::Tile(pair<int, int> pos_) {
+    pos = pos_;
+}

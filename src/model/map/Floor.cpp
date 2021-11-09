@@ -14,3 +14,7 @@ void Floor::show() {
     std::cout << "0  ";
 }
 
+Floor::Floor(pair<int, int> pos) : Tile(pos){
+
+}
+

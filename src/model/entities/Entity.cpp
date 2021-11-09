@@ -1,5 +1,4 @@
 #include <ostream>
-#include <iostream>
 #include "Entity.h"
 
 using namespace std;
@@ -10,7 +9,7 @@ Entity::Entity(pair<int, int> _pos, int _health, Map* _map) {
     map = _map;
 }
 
-pair<int, int> Entity::getPosition() {
+pair<int, int> Entity::get_position() {
     return pos;
 }
 
@@ -35,6 +34,10 @@ ostream & operator<<(ostream &os, const Entity *ent) {
 
 Map *Entity::get_map() {
     return map;
+}
+
+void Entity::set_position(pair<int, int> pos_) {
+    pos = pos_;
 }
 
 

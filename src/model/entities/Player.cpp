@@ -10,7 +10,7 @@ Player::Player(const Player &p) : Entity(p){
 }
 
 bool Player::canMove(char Direction) {
-    pair<int, int> pos = getPosition();
+    pair<int, int> pos = get_position();
     Tile* tile = nullptr;
     switch (Direction) {
         case 'Z':
@@ -29,12 +29,16 @@ bool Player::canMove(char Direction) {
         default:
             cout << "Input inutile\n";
     }
-    if (tile != nullptr && tile->is_walkable() != 0) {
-        //std::cout << "move\n";
+    if (tile != nullptr && tile->is_walkable()) {
+        std::cout << "move\n";
+        std::cout << pos.first << " " << pos.second << std::endl;
         move(tile->getPosition());
+    }
+    else if(tile != nullptr && !tile->is_walkable()){
+        std::cout << "Mouvement impossible (vous foncez dans un mur)\n";
     }
 }
 
-void Player::move(pair<int, int> pos) {
-    
+void Player::move(pair<int, int> pos_) {
+    set_position(pos_);
 }

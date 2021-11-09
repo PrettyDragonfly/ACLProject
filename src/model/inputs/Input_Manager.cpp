@@ -3,7 +3,6 @@
 //
 
 #include <iostream>
-#include <cstdlib>
 #include "Input_Manager.h"
 
 /**
@@ -19,8 +18,8 @@ void Input_Manager::process_input(){
 }
 
 void Input_Manager::get_input() {
-    //TODO Faire en sorte que l'input soit vérifié + empécher que
-    std::cout << "Enter input (ZQSD to move, X to quit) : ";
+    //TODO Faire en sorte que l'input soit vérifié + empécher qu'on puisse rentrer autre chose qu'un char
+    std::cout << "Enter input (ZQSD to move) : ";
     std::cin >> input;
 }
 

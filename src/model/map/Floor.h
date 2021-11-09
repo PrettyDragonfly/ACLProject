@@ -8,6 +8,7 @@
 
 class Floor : public Tile{
 public:
+    explicit Floor(pair<int, int> pos);
     void show() override;
     bool is_walkable() override;
     friend std::ostream& operator<<(std::ostream& os, const Floor& f);
