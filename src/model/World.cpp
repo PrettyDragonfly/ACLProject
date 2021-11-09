@@ -5,6 +5,7 @@
 World::World(){
     map = new Map();
     player = new Entity(pair(5,5), 10, this->map);
+    //enemy = new Entity(pair(7,8),5,this->map);
 }
 
 /**
@@ -25,3 +26,7 @@ Entity* World::get_player() {
 World::~World() {
     delete player;
 }
+
+/**Entity* World::get_enemy() {
+    return enemy;
+}**/

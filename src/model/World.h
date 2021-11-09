@@ -7,11 +7,13 @@
 class World {
     Map *map;
     Entity* player;
+    //Entity* enemy;    //pour plus tard
 public:
     World();
     ~World();
     void update();
     Entity* get_player();
+    //Entity* get_enemy();
 };
 
 
