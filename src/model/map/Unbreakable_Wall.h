@@ -7,7 +7,10 @@
 #include "Tile.h"
 #include<utility>
 
-class Unbreakable_Wall : Tile{
+class Unbreakable_Wall : public Tile{
+
+public :
+    bool is_breakable() override;
 
 };
 

@@ -10,10 +10,10 @@
 #include "Tile.h"
 #include<utility>
 
-class Breakable_Wall : Tile{
+class Breakable_Wall : public Tile{
 
-
-
+public :
+    bool is_breakable() override;
 };
 
 

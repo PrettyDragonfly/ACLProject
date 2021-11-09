@@ -6,7 +6,9 @@
 #include<utility>
 
 class Floor : public Tile{
+
 public:
+    bool is_breakable() override;
     bool is_walkable() override;
 };
 
