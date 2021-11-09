@@ -37,8 +37,10 @@ bool Entity::canMove(char Direction) {
         default:
             cout << "Input inutile\n";
     }
-    if (tile->is_walkable() != 0) {
-        move(tile->getPosition());
+    if (tile != NULL) {
+        if (tile->is_walkable() != 0) {
+            move(tile->getPosition());
+        }
     }
 }
 
