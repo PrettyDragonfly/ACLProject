@@ -22,8 +22,6 @@ public:
     ~Entity();
 
     friend ostream & operator<<(ostream &os, const Entity *ent);
-
-
 };
 
 

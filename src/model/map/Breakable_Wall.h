@@ -5,13 +5,11 @@
 #ifndef PROJET_BREAKABLE_WALL_H
 #define PROJET_BREAKABLE_WALL_H
 
-
-
 #include "Tile.h"
 #include<utility>
 class Breakable_Wall : public Tile{
-
-
+public:
+    bool is_walkable();
 };
 
 

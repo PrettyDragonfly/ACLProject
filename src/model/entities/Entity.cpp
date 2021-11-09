@@ -1,7 +1,6 @@
 #include <ostream>
 #include <iostream>
 #include "Entity.h"
-#include "../map/Tile.h"
 
 using namespace std;
 
@@ -20,7 +19,7 @@ void Entity::move(pair<int, int> newPos) {
 }
 
 bool Entity::canMove(char Direction) {
-    Tile* tile = NULL;
+    Tile* tile = nullptr;
     switch (Direction) {
         case 'Z':
             tile = map->get_tile(getPosition().first,getPosition().second-1);
@@ -37,9 +36,10 @@ bool Entity::canMove(char Direction) {
         default:
             cout << "Input inutile\n";
     }
+    /**
     if (tile->is_walkable() != 0) {
         move(tile->getPosition());
-    }
+    }**/
 }
 
 int Entity::get_health() {

@@ -7,6 +7,7 @@
 class Player : public Entity{
 public:
     Player(pair<int, int> _pos, int _ptVie, Map* map);
+    Player(const Player& p);
 };
 
 

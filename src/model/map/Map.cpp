@@ -1,14 +1,13 @@
 #include <iostream>
 #include "Map.h"
 #include "Floor.h"
-#include "Unbreakable_Wall.h"
-#include <iostream>
 
 /**
  * @brief Map constructor with no specified file then simple floor map
  *
  */
 Map::Map() {
+    std::cout << "Map monstructor called\n";
     map = new Tile**[size];
     for (int i = 0; i < size; i++) {
         map[i] = new Tile*[size];
@@ -27,11 +26,14 @@ Map::Map(int file_number){
 }
 
 Map::~Map() {
+    std::cout << "Map destructor called\n";
     int i,j;
-    for(i = 0; i < size; i++)
-        for(j = 0; j < size; j++)
+    for(i = 0; i < size; i++) {
+        for (j = 0; j < size; j++) {
             delete map[i][j];
+        }
         delete map[i];
+    }
     delete map;
 }
 
@@ -47,15 +49,12 @@ Tile *Map::get_tile(int x, int y) {
     }
 }
 
-std::ostream &operator<<(std::ostream &os, Map map) {
-    std::string map_string;
-    for (int i = 0; i < map.size; i++){
-        for (int j = 0; j < map.size; j++){
-            std::cout << map.map[i][j];
+std::ostream &operator<<(std::ostream &os, Map& map) {
+    for(int i = 0; i < map.size; i++){
+        for(int j = 0; j<map.size; j++){
+            continue;
         }
-        map_string.append("\n");
     }
-    os << map_string << std::endl;
     return os;
 }
 

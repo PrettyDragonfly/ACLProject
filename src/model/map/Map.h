@@ -18,7 +18,7 @@ public:
     ~Map();
     Tile* get_tile(int x, int y);
     //TODO ASSIGNMENT OPERATOR
-    friend std::ostream & operator<<(std::ostream &os, Map map);
+    friend std::ostream & operator<<(std::ostream &os, Map& map);
 };
 
 

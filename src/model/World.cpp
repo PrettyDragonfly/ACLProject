@@ -2,13 +2,9 @@
 #include "entities/Player.h"
 #include <iostream>
 
-World::World(){
-<<<<<<< HEAD
-    player = new Player(pair(0,0), 3);
-=======
-    map = new Map();
-    player = new Entity(pair(5,5), 10, this->map);
->>>>>>> test_flo_1
+World::World() {
+    std::cout << "World constructor called\n";
+    player = new Player(pair(5,5), 10, this->map);
 }
 
 /**
@@ -27,9 +23,10 @@ Entity* World::get_player() {
 }
 
 World::~World() {
+    std::cout << "World destructor called\n";
     delete player;
 }
 
-Map& World::get_map() {
+Map* World::get_map() {
     return map;
 }
