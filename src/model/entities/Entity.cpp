@@ -18,30 +18,6 @@ void Entity::move(pair<int, int> newPos) {
     pos = newPos;
 }
 
-bool Entity::canMove(char Direction) {
-    Tile* tile = nullptr;
-    switch (Direction) {
-        case 'Z':
-            tile = map->get_tile(getPosition().first,getPosition().second-1);
-            break;
-        case 'S':
-            tile = map->get_tile(getPosition().first,getPosition().second+1);
-            break;
-        case 'Q':
-            tile = map->get_tile(getPosition().first-1, getPosition().second);
-            break;
-        case 'D':
-            tile = map->get_tile(getPosition().first+1, getPosition().second);
-            break;
-        default:
-            cout << "Input inutile\n";
-    }
-    /**
-    if (tile->is_walkable() != 0) {
-        move(tile->getPosition());
-    }**/
-}
-
 int Entity::get_health() {
     return health;
 }
@@ -53,10 +29,12 @@ void Entity::set_health(int newHealth) {
 Entity::~Entity() {}
 
 ostream & operator<<(ostream &os, const Entity *ent) {
-    os << "x: " << ent->pos.first << " y: " << ent->pos.second << " hp: " << ent->health << endl;
+    os << "Entity : x: " << ent->pos.first << " y: " << ent->pos.second << " hp: " << ent->health << endl;
     return os;
 }
 
-void Entity::move(int x, int y) {
-    //Dummy function
+Map *Entity::get_map() {
+    return map;
 }
+
+

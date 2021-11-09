@@ -1,7 +1,3 @@
-//
-// Created by thifl on 17/10/2021.
-//
-
 #ifndef PROJET_MAP_H
 #define PROJET_MAP_H
 
@@ -13,11 +9,25 @@ class Map {
     int size = 10;
     Tile*** map;
 public:
+    //Constructors
     Map();
     Map(int file_number);
+    Map(const Map& m);
+
+    //Destructor
     ~Map();
+
+    //Getter
     Tile* get_tile(int x, int y);
-    //TODO ASSIGNMENT OPERATOR
+
+    //Setters
+
+    //Functions members
+    //Map& operator=(const Map & m);
+    void verify();
+    void show();
+
+    //friends
     friend std::ostream & operator<<(std::ostream &os, Map& map);
 };
 

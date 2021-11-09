@@ -1,20 +1,24 @@
 #include <iostream>
 #include "Map.h"
 #include "Floor.h"
+#include "Unbreakable_Wall.h"
 
 /**
  * @brief Map constructor with no specified file then simple floor map
  *
  */
 Map::Map() {
-    std::cout << "Map monstructor called\n";
+    std::cout << "Map constructor called\n";
     map = new Tile**[size];
     for (int i = 0; i < size; i++) {
         map[i] = new Tile*[size];
-        for (int j = 1; j < size; j++) {
+        map[i][0] = new Unbreakable_Wall();
+        for (int j = 1; j < size-1; j++) {
             map[i][j] = new Floor();
         }
+        map[i][9] = new Unbreakable_Wall();
     }
+    //verify();
 }
 
 /**
@@ -43,18 +47,43 @@ Map::~Map() {
  * @param y
  * @return the tile from map(x,y)
  */
-Tile *Map::get_tile(int x, int y) {
+Tile* Map::get_tile(int x, int y) {
+    //std::cout << x << " " << y << "\n";
     if (x >= 0 && x < size && y >= 0 && y < size){
-        return map[x][y];
+        //std::cout << "youpi";
+        //return map[x][y];
     }
+    return new Floor();
 }
 
 std::ostream &operator<<(std::ostream &os, Map& map) {
     for(int i = 0; i < map.size; i++){
         for(int j = 0; j<map.size; j++){
-            continue;
+            map.map[i][j]->show();
         }
+        std::cout << "\n";
     }
     return os;
 }
+
+Map::Map(const Map & m) {
+    size = m.size;
+}
+
+void Map::verify() {
+    for(int i = 0; i< size; i++){
+        for (int j = 0; j < size ; j++){
+            if (map[i][j] == nullptr)
+                std::cout << "NULLPTR " << i << " " << j << std::endl;
+        }
+    }
+    std::cout << "all good\n";
+}
+
+void Map::show() {
+    //std::cout << "prout\n";
+    std::cout << *this;
+}
+
+
 

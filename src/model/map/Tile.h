@@ -10,6 +10,7 @@ private :
     pair<int, int> pos;
 public:
     virtual bool is_walkable() = 0;
+    virtual void show() = 0;
     //bool isBreakable(Tile tile);
     pair<int, int> setPosition(pair<int, int> pos);
     pair<int, int> getPosition();

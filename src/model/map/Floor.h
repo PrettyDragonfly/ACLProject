@@ -8,8 +8,9 @@
 
 class Floor : public Tile{
 public:
+    void show() override;
     bool is_walkable() override;
-    friend std::ostream& operator<<(std::ostream& os, Floor f);
+    friend std::ostream& operator<<(std::ostream& os, const Floor& f);
 };
 
 

@@ -4,6 +4,7 @@
 
 World::World() {
     std::cout << "World constructor called\n";
+    map = new Map();
     player = new Player(pair(5,5), 10, this->map);
 }
 

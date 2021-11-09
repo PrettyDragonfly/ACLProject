@@ -7,20 +7,29 @@
 using namespace std;
 
 class Entity {
-protected:
     pair<int, int> pos;
     int health;
     Map* map;
 public:
+    //Constructors
     Entity(pair<int, int> pos, int health, Map* map);
-    pair<int, int> getPosition();
-    bool canMove(char Direction);
-    void move(int x, int y);
-    int get_health();
-    void set_health(int newHealth);
-    void move(pair<int, int> newPos);
+
+    //Destructors
     ~Entity();
 
+    //Functions members
+    pair<int, int> getPosition();
+    virtual void move(pair<int, int> newPos);
+    virtual bool canMove(char input) = 0;
+
+    //Getters
+    int get_health();
+    Map* get_map();
+
+    //Setters
+    void set_health(int newHealth);
+
+    //Friends functions
     friend ostream & operator<<(ostream &os, const Entity *ent);
 };
 

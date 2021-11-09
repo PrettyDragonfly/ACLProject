@@ -12,6 +12,7 @@ class Unbreakable_Wall : public Tile{
 public:
     Unbreakable_Wall();
     bool is_walkable() override;
+    void show() override;
     friend std::ostream& operator<<(std::ostream& os, Unbreakable_Wall uw);
 };
 

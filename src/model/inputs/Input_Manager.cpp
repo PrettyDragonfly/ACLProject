@@ -12,30 +12,14 @@
  **/
 void Input_Manager::process_input(){
     get_input();
+    //std::cout << "pass gettile\n";
     Entity* player = g->get_player();
+    //std::cout << &player;
     player->canMove(std::toupper(input));
-    /**switch(std::toupper(input)){
-        case 'Z':
-            //replace with canMove(Direction)
-            player->move(0,-1);
-            break;
-        case 'Q':
-            player->move(-1, 0);
-            break;
-        case 'S':
-            player->move(0, 1);
-            break;
-        case 'D':
-            player->move(1, 0);
-            break;
-        case 'X':
-            exit(EXIT_SUCCESS);
-        default:
-            std::cout << "Input inutile\n";
-    }**/
 }
 
 void Input_Manager::get_input() {
+    //TODO Faire en sorte que l'input soit vérifié + empécher que
     std::cout << "Enter input (ZQSD to move, X to quit) : ";
     std::cin >> input;
 }
