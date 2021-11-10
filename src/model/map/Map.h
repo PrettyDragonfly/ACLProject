@@ -1,21 +1,34 @@
-//
-// Created by thifl on 17/10/2021.
-//
-
 #ifndef PROJET_MAP_H
 #define PROJET_MAP_H
 
-
+#include <ostream>
 #include "Tile.h"
+#include <ostream>
 
 class Map {
-    static const int size = 10;
-    Tile* map[size][size];
+    int size = 10;
+    Tile*** map;
 public:
+    //Constructors
     Map();
     Map(int file_number);
+    Map(const Map& m);
+
+    //Destructor
     ~Map();
+
+    //Getter
     Tile* get_tile(int x, int y);
+
+    //Setters
+
+    //Functions members
+    //Map& operator=(const Map & m);
+    void verify();
+    void show();
+
+    //friends
+    friend std::ostream & operator<<(std::ostream &os, Map& map);
 };
 
 

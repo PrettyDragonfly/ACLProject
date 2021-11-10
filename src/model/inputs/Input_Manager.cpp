@@ -11,36 +11,23 @@
  **/
 void Input_Manager::process_input(){
     get_input();
+    if (std::toupper(input) == 'X')
+        exit(0);
+    //std::cout << "pass gettile\n";
     Entity* player = g->get_player();
+    //std::cout << &player;
     player->canMove(std::toupper(input));
-    /**switch(std::toupper(input)){
-        case 'Z':
-            //replace with canMove(Direction)
-            player->move(0,-1);
-            break;
-        case 'Q':
-            player->move(-1, 0);
-            break;
-        case 'S':
-            player->move(0, 1);
-            break;
-        case 'D':
-            player->move(1, 0);
-            break;
-        default:
-            std::cout << "Input inutile\n";
-    }**/
 }
 
 void Input_Manager::get_input() {
-    std::cout << "Enter input : ";
+    //TODO Faire en sorte que l'input soit vérifié + empécher qu'on puisse rentrer autre chose qu'un char
+    std::cout << "Enter input (ZQSD to move, X to quit) : ";
     std::cin >> input;
 }
 
-Input_Manager::~Input_Manager() {}
+Input_Manager::~Input_Manager() = default;
 
-Input_Manager::Input_Manager() {
-}
+Input_Manager::Input_Manager() = default;
 
 void Input_Manager::set_game(Game *pGame) {
     g = pGame;

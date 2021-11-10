@@ -3,13 +3,16 @@
 
 
 #include "Tile.h"
+#include <ostream>
 #include<utility>
 
 class Floor : public Tile{
 
 public:
-    bool is_breakable() override;
+    explicit Floor(int x, int y);
+    void show() override;
     bool is_walkable() override;
+    friend std::ostream& operator<<(std::ostream& os, const Floor& f);
 };
 
 
