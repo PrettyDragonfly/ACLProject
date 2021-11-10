@@ -17,14 +17,20 @@
 }**/
 
 
-pair<int, int> Tile::setPosition(pair<int, int> position){
-    pos=position;
+void Tile::set_position(int x_, int y_) {
+    x = x_;
+    y = y_;
 }
 
-pair<int, int> Tile::getPosition(){
-    return pos;
+int Tile::get_y_position(){
+    return y;
 }
 
-Tile::Tile(pair<int, int> pos_) {
-    pos = pos_;
+int Tile::get_x_position(){
+    return x;
+}
+
+Tile::Tile(int x_, int y_) {
+    x = x_;
+    y = y_;
 }

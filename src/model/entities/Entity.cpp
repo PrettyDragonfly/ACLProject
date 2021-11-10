@@ -3,21 +3,27 @@
 
 using namespace std;
 
-Entity::Entity(pair<int, int> _pos, int _health, Map* _map) {
-    pos = _pos;
+Entity::Entity(int x_, int y_, int _health, Map* _map) {
+    x = x_;
+    y = y_;
     health = _health;
     map = _map;
 }
 
-pair<int, int> Entity::get_position() {
-    return pos;
+int Entity::get_x_position() const {
+    return x;
 }
 
-void Entity::move(pair<int, int> newPos) {
-    pos = newPos;
+int Entity::get_y_position() const {
+    return y;
 }
 
-int Entity::get_health() {
+void Entity::move(int x_, int y_) {
+    x = x_;
+    y = y_;
+}
+
+int Entity::get_health() const {
     return health;
 }
 
@@ -25,10 +31,10 @@ void Entity::set_health(int newHealth) {
     health = newHealth;
 }
 
-Entity::~Entity() {}
+Entity::~Entity() = default;
 
 ostream & operator<<(ostream &os, const Entity *ent) {
-    os << "Entity : x: " << ent->pos.first << " y: " << ent->pos.second << " hp: " << ent->health << endl;
+    os << "Entity : x: " << ent->x << " y: " << ent->y << " hp: " << ent->health << endl;
     return os;
 }
 
@@ -36,8 +42,9 @@ Map *Entity::get_map() {
     return map;
 }
 
-void Entity::set_position(pair<int, int> pos_) {
-    pos = pos_;
+void Entity::set_position(int x_, int y_) {
+    x = x_;
+    y = y_;
 }
 
 

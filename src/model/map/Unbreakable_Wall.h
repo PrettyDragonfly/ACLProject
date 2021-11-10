@@ -10,7 +10,7 @@
 
 class Unbreakable_Wall : public Tile{
 public:
-    explicit Unbreakable_Wall(pair<int, int> pos_);
+    explicit Unbreakable_Wall(int x, int y);
     bool is_walkable() override;
     void show() override;
     friend std::ostream& operator<<(std::ostream& os, Unbreakable_Wall uw);

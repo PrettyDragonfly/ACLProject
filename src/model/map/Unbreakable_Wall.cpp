@@ -14,6 +14,6 @@ void Unbreakable_Wall::show() {
     std::cout << "X  ";
 }
 
-Unbreakable_Wall::Unbreakable_Wall(pair<int, int> pos_) : Tile(pos_) {
+Unbreakable_Wall::Unbreakable_Wall(int x, int y) : Tile(x, y) {
 
 }

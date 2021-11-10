@@ -11,6 +11,8 @@
  **/
 void Input_Manager::process_input(){
     get_input();
+    if (std::toupper(input) == 'X')
+        exit(0);
     //std::cout << "pass gettile\n";
     Entity* player = g->get_player();
     //std::cout << &player;
@@ -19,7 +21,7 @@ void Input_Manager::process_input(){
 
 void Input_Manager::get_input() {
     //TODO Faire en sorte que l'input soit vérifié + empécher qu'on puisse rentrer autre chose qu'un char
-    std::cout << "Enter input (ZQSD to move) : ";
+    std::cout << "Enter input (ZQSD to move, X to quit) : ";
     std::cin >> input;
 }
 

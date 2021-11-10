@@ -11,17 +11,17 @@ Map::Map() {
     map = new Tile**[size];
     for (int i = 0; i < size; i++) {
         map[i] = new Tile*[size];
-        map[i][0] = new Unbreakable_Wall(pair(i, 0));
+        map[i][0] = new Unbreakable_Wall(i, 0);
         if (i == 0 || i == 9){
             for(int j = 1; j< size-1; j++)
-                map[i][j] = new Unbreakable_Wall(pair(i,j));
+                map[i][j] = new Unbreakable_Wall(i, j);
         }
         else {
             for (int j = 1; j < size - 1; j++) {
-                map[i][j] = new Floor(pair(i, j));
+                map[i][j] = new Floor(i, j);
             }
         }
-        map[i][9] = new Unbreakable_Wall(pair(i, 9));
+        map[i][9] = new Unbreakable_Wall(i, 9);
     }
     //verify();
 }
@@ -57,6 +57,7 @@ Tile* Map::get_tile(int x, int y) {
         //std::cout << "youpi";
         return map[x][y];
     }
+    return nullptr;
 }
 
 std::ostream &operator<<(std::ostream &os, Map& map) {
@@ -87,6 +88,3 @@ void Map::show() {
     //std::cout << "prout\n";
     std::cout << *this;
 }
-
-
-

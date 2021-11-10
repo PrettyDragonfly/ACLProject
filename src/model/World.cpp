@@ -3,9 +3,9 @@
 #include <iostream>
 
 World::World() {
-    std::cout << "World constructor called\n";
+    //std::cout << "World constructor called\n";
     map = new Map();
-    player = new Player(pair(1,1), 10, this->map);
+    player = new Player(1, 1, 10, this->map);
 }
 
 /**
@@ -19,7 +19,7 @@ void World::update() {
  * Player getter
  * @return player
  */
-Entity* World::get_player() {
+Entity* World::get_player() const{
     return player;
 }
 
@@ -28,6 +28,6 @@ World::~World() {
     delete player;
 }
 
-Map* World::get_map() {
+Map* World::get_map() const{
     return map;
 }

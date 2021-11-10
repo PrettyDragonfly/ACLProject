@@ -7,28 +7,30 @@
 using namespace std;
 
 class Entity {
-    pair<int, int> pos;
+    int x;
+    int y;
     int health;
     Map* map;
 public:
     //Constructors
-    Entity(pair<int, int> pos, int health, Map* map);
+    Entity(int x, int y, int health, Map* map);
 
     //Destructors
     ~Entity();
 
     //Functions members
-    virtual void move(pair<int, int> newPos);
+    virtual void move(int x, int y);
     virtual bool canMove(char input) = 0;
 
     //Getters
-    int get_health();
+    int get_health() const;
     Map* get_map();
-    pair<int, int> get_position();
+    int get_x_position() const;
+    int get_y_position() const;
 
     //Setters
     void set_health(int newHealth);
-    void set_position(pair<int, int> pos);
+    void set_position(int x, int y);
 
     //Friends functions
     friend ostream & operator<<(ostream &os, const Entity *ent);

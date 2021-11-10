@@ -8,11 +8,12 @@ class World {
     Map* map;
     Entity* player;
 public:
+    //TODO define a virtual destructor
     World();
     ~World();
     void update();
-    Entity* get_player();
-    Map* get_map();
+    Entity* get_player() const;
+    Map* get_map() const;
 };
 
 
