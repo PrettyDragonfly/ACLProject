@@ -3,8 +3,8 @@
 #include "CSVReader.cpp"
 
 int main() {
-    //Game g;
-    //g.play();
+    Game g;
     readCSV();
+    g.play();
     return 0;
 }
