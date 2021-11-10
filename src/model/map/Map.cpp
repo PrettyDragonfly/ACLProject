@@ -7,7 +7,7 @@
  * @brief Map constructor with no specified file then simple map
  */
 Map::Map() {
-    std::cout << "Map constructor called\n";
+    //std::cout << "Map constructor called\n";
     map = new Tile**[size];
     for (int i = 0; i < size; i++) {
         map[i] = new Tile*[size];
@@ -35,7 +35,7 @@ Map::Map(int file_number){
 }
 
 Map::~Map() {
-    std::cout << "Map destructor called\n";
+    //std::cout << "Map destructor called\n";
     int i,j;
     for(i = 0; i < size; i++) {
         for (j = 0; j < size; j++) {
