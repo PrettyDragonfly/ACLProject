@@ -7,12 +7,16 @@ using namespace std;
 
 class Tile {
 private :
-    pair<int, int> pos;
+    int x;
+    int y;
 public:
-    virtual bool is_breakable() = 0;
+    //TODO define a virtual destructor
+    explicit Tile(int x_, int y_);
     virtual bool is_walkable() = 0;
-    pair<int, int> setPosition(pair<int, int> pos);
-    pair<int, int> getPosition();
+    virtual void show() = 0;
+    void set_position(int x_, int y_);
+    int get_x_position();
+    int get_y_position();
 };
 
 #endif //PROJET_TILE_H

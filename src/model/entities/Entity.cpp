@@ -1,50 +1,29 @@
 #include <ostream>
-#include <iostream>
 #include "Entity.h"
-#include "../map/Tile.h"
 
 using namespace std;
 
-Entity::Entity(pair<int, int> _pos, int _health, Map* _map) {
-    pos = _pos;
+Entity::Entity(int x_, int y_, int _health, Map* _map) {
+    x = x_;
+    y = y_;
     health = _health;
     map = _map;
 }
 
-pair<int, int> Entity::getPosition() {
-    return pos;
+int Entity::get_x_position() const {
+    return x;
 }
 
-void Entity::move(pair<int, int> newPos) {
-    pos = newPos;
+int Entity::get_y_position() const {
+    return y;
 }
 
-bool Entity::canMove(char Direction) {
-    Tile* tile = NULL;
-    switch (Direction) {
-        case 'Z':
-            tile = map->get_tile(getPosition().first,getPosition().second-1);
-            break;
-        case 'S':
-            tile = map->get_tile(getPosition().first,getPosition().second+1);
-            break;
-        case 'Q':
-            tile = map->get_tile(getPosition().first-1, getPosition().second);
-            break;
-        case 'D':
-            tile = map->get_tile(getPosition().first+1, getPosition().second);
-            break;
-        default:
-            cout << "Input inutile\n";
-    }
-    if (tile != NULL) {
-        if (tile->is_walkable() != 0) {
-            move(tile->getPosition());
-        }
-    }
+void Entity::move(int x_, int y_) {
+    x = x_;
+    y = y_;
 }
 
-int Entity::get_health() {
+int Entity::get_health() const {
     return health;
 }
 
@@ -52,13 +31,20 @@ void Entity::set_health(int newHealth) {
     health = newHealth;
 }
 
-Entity::~Entity() {}
+Entity::~Entity() = default;
 
 ostream & operator<<(ostream &os, const Entity *ent) {
-    os << "x: " << ent->pos.first << " y: " << ent->pos.second << " hp: " << ent->health << endl;
+    os << "Entity : x: " << ent->x << " y: " << ent->y << " hp: " << ent->health << endl;
     return os;
 }
 
-void Entity::move(int x, int y) {
-    //Dummy function
+Map *Entity::get_map() {
+    return map;
 }
+
+void Entity::set_position(int x_, int y_) {
+    x = x_;
+    y = y_;
+}
+
+

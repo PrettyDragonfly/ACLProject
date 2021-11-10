@@ -2,10 +2,10 @@
 #include "entities/Player.h"
 #include <iostream>
 
-World::World(){
+World::World() {
+    //std::cout << "World constructor called\n";
     map = new Map();
-    player = new Entity(pair(5,5), 10, this->map);
-    //enemy = new Entity(pair(7,8),5,this->map);
+    player = new Player(1, 1, 10, this->map);
 }
 
 /**
@@ -19,14 +19,15 @@ void World::update() {
  * Player getter
  * @return player
  */
-Entity* World::get_player() {
+Entity* World::get_player() const{
     return player;
 }
 
 World::~World() {
+    std::cout << "World destructor called\n";
     delete player;
 }
 
-/**Entity* World::get_enemy() {
-    return enemy;
-}**/
+Map* World::get_map() const{
+    return map;
+}

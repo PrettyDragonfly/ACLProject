@@ -5,15 +5,16 @@
 #include "entities/Entity.h"
 
 class World {
-    Map *map;
+    Map* map;
     Entity* player;
     //Entity* enemy;    //pour plus tard
 public:
+    //TODO define a virtual destructor
     World();
     ~World();
     void update();
-    Entity* get_player();
-    //Entity* get_enemy();
+    Entity* get_player() const;
+    Map* get_map() const;
 };
 
 
