@@ -5,6 +5,8 @@
 #include <utility>
 
 class Player : public Entity{
+private :
+    int lifePts =7;
 public:
     Player();
 
@@ -12,6 +14,8 @@ public:
     Player(const Player& p);
     bool canMove(char Direction);
     void move(int x, int y);
+    int getLifePts();
+    void setLifePts(int life);
 };
 
 
