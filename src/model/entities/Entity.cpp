@@ -47,4 +47,22 @@ void Entity::set_position(int x_, int y_) {
     y = y_;
 }
 
+void Entity::isHurtByABomb(Entity* ent, Entity* bomb) {
+    if (ent->get_x_position() == bomb->get_x_position) {
+        for (int i = (bomb->get_y_position) - taille, i++, i <= (bomb->get_y_position) + taille) {
+            if (ent->get_y_position == i) {
+                ent->set_health(ent->get_health() - 1);
+            }
+        }
+    }
+    if (ent->get_y_position() == bomb->get_y_position) {
+        for (int i = (bomb->get_x_position) - taille, i++, i <= (bomb->get_x_position) + taille) {
+            if (ent->get_x_position == i) {
+                ent->set_health(ent->get_health() - 1);
+            }
+        }
+    }
+}
+
+
 

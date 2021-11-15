@@ -46,11 +46,5 @@ void Player::move(int x_, int y_) {
     set_position(x_, y_);
 }
 
-void Player::setLifePts(int life) {
-    lifePts = life;
-}
 
-int Player::getLifePts(){
-    return lifePts;
-}
 

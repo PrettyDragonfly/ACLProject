@@ -34,6 +34,11 @@ public:
 
     //Friends functions
     friend ostream & operator<<(ostream &os, const Entity *ent);
+
+    //Loss of health
+    void isHurtByABomb(Entity* ent);
+
+
 };
 
 

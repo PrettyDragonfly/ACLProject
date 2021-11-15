@@ -5,8 +5,6 @@
 #include <utility>
 
 class Player : public Entity{
-private :
-    int lifePts =7;
 public:
     Player();
 
