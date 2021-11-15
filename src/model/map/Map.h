@@ -27,6 +27,8 @@ public:
     void verify();
     void show();
 
+    int getSize();
+
     //friends
     friend std::ostream & operator<<(std::ostream &os, Map& map);
 };

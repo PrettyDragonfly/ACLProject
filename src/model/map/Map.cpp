@@ -88,3 +88,7 @@ void Map::show() {
     //std::cout << "prout\n";
     std::cout << *this;
 }
+
+int Map::getSize() {
+    return size;
+}
