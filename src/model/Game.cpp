@@ -31,3 +31,7 @@ void Game::show() const {
     world.get_map()->show();
 }
 
+Map* Game::getMap() {
+    return world.get_map();
+}
+
