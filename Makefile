@@ -9,10 +9,10 @@ MOD = src/model/
 VUE = src/view/
 
 #sources
-SRC = $(MOD)game.o $(MOD)world.o $(MAP)floor.o $(MAP)map.o $(MAP)tile.o $(MAP)unbreakwall.o $(ENT)player.o $(ENT)entity.o $(VUE)game_view.o $(INP)input.o
+SRC = $(MOD)game.o $(MOD)world.o $(MAP)floor.o $(MAP)map.o $(MAP)tile.o $(MAP)unbreakwall.o $(MAP)breakwall.o $(ENT)player.o $(ENT)entity.o $(VUE)game_view.o $(INP)input.o
 
 #headers
-HEAD = $(MOD)Game.h $(MOD)World.h $(MAP)Map.h $(MAP)Floor.h $(MAP)Tile.h $(MAP)Unbreakable_Wall.h $(ENT)Entity.h $(ENT)Player.h $(VUE)Game_View.h $(INP)Input_Manager.h
+HEAD = $(MOD)Game.h $(MOD)World.h $(MAP)Map.h $(MAP)Floor.h $(MAP)Tile.h $(MAP)Unbreakable_Wall.h $(MAP)Breakable_Wall.h $(ENT)Entity.h $(ENT)Player.h $(VUE)Game_View.h $(INP)Input_Manager.h
 
 ########################################################################################################################
 
@@ -47,10 +47,13 @@ $(MAP)tile.o:			$(MAP)Tile.cpp 				$(MAP)Tile.h
 	$(COMPILE)	-c	$(MAP)Tile.cpp				-o	$(MAP)tile.o
 
 $(MAP)unbreakwall.o:	$(MAP)Unbreakable_Wall.cpp 	$(MAP)Unbreakable_Wall.h
-	$(COMPILE)	-c	$(MAP)Unbreakable_Wall.cpp	-o	$(MAP)unbreakwall.o
+	$(COMPILE)	-c	$(MAP)Unbreakable_Wall.cpp -o	$(MAP)unbreakwall.o
 
-$(INP)input.o:			$(INP)Input_Manager.cpp 			$(INP)Input_Manager.h
-	$(COMPILE)	-c	$(INP)Input_Manager.cpp			-o	$(INP)input.o
+$(MAP)breakwall.o:      $(MAP)Breakable_Wall.cpp    $(MAP)Breakable_Wall.h
+    $(COMPILE)  -c  $(MAP)Breakable_Wall.cpp -o     $(MAP)breakwall.o
+
+$(INP)input.o:			$(INP)Input_Manager.cpp 	$(INP)Input_Manager.h
+	$(COMPILE)	-c	$(INP)Input_Manager.cpp	-o	    $(INP)input.o
 
 $(ENT)entity.o:			$(ENT)Entity.cpp 			$(ENT)Entity.h
 	$(COMPILE)	-c	$(ENT)Entity.cpp			-o	$(ENT)entity.o
