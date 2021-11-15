@@ -4,7 +4,8 @@
 
 int main() {
     Game g;
-    readFile();
+    readFile(g.getMap());
+    g.getMap()->show();
     g.play();
     return 0;
 }

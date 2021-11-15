@@ -12,30 +12,19 @@ int readFile(Map* map) {
     ifstream flux(fileName);
     if(flux) {
         for(i=0; i<map->getSize(); i++) {
-            for (j=0; j<map->getSize(); j++) {
-
+            if (i!=0) {
+                flux.get(a);
             }
-        }
-        while (flux.get(a)) {
-            switch(a) {
-                case '0':
-                    cout <<"SOL ";
-                    break;
-                case '1':
-                    cout << "MUR ";
-                    break;
-                case '2':
-                    cout << "MUR INCASSABLE ";
-                    break;
-                default:
-                    cout << "NOTHING" << endl;
-                    break;
+            for (j=0; j<map->getSize(); j++) {
+                if(flux.get(a)) {
+                    map->setTile(i,j,a);
+                }
             }
         }
         flux.close();
     }
     else {
-        cout << "c'est la merde" << endl;
+        cout << "Can't open the file" << endl;
     }
     return 0;
 }

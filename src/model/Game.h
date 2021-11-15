@@ -21,6 +21,7 @@ public:
     void play();
     Entity * get_player();
 
+    Map* getMap();
     void show() const;
 };
 
