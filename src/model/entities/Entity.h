@@ -3,7 +3,7 @@
 #include "../map/Map.h"
 #include <utility>
 #include <ostream>
-
+class Bomb;
 using namespace std;
 
 class Entity {
@@ -36,8 +36,7 @@ public:
     friend ostream & operator<<(ostream &os, const Entity *ent);
 
     //Loss of health
-    void isHurtByABomb(Entity* ent);
-
+    void isHurtByABomb(Entity* ent, Bomb* bomb);
 
 };
 

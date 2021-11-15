@@ -1,5 +1,6 @@
 #include <ostream>
 #include "Entity.h"
+#include "Bomb.h"
 
 using namespace std;
 
@@ -47,17 +48,17 @@ void Entity::set_position(int x_, int y_) {
     y = y_;
 }
 
-void Entity::isHurtByABomb(Entity* ent, Entity* bomb) {
-    if (ent->get_x_position() == bomb->get_x_position) {
-        for (int i = (bomb->get_y_position) - size, i++, i <= (bomb->get_y_position) + size) {
-            if (ent->get_y_position == i) {
+void Entity::isHurtByABomb(Entity* ent, Bomb* bomb) {
+    if (ent->get_x_position() == bomb->get_x_position()) {
+        for (int i = (bomb->get_y_position()) - bomb->getSize(); i++; i <= ((bomb->get_y_position()) + bomb->getSize())) {
+            if (ent->get_y_position() == i) {
                 ent->set_health(ent->get_health() - 1);
             }
         }
     }
-    if (ent->get_y_position() == bomb->get_y_position) {
-        for (int i = (bomb->get_x_position) - size, i++, i <= (bomb->get_x_position) + size) {
-            if (ent->get_x_position == i) {
+    if (ent->get_y_position() == bomb->get_y_position()) {
+        for (int i = (bomb->get_x_position()) - bomb->getSize(); i++; i <= ((bomb->get_x_position()) + bomb->getSize())) {
+            if (ent->get_x_position() == i) {
                 ent->set_health(ent->get_health() - 1);
             }
         }
