@@ -10,14 +10,14 @@
 
 class Bomb : public Entity{
 private:
-    int timeBeforeExplose = 3;
+    float timeBeforeExplose = 3;
     int size = 3;
 public:
     Bomb();
     Bomb(int x, int y, Map* map);
     Bomb(const Bomb& b);
-    int getTime();
-    void setTime(int newTime);
+    float getTime();
+    void setTime(float newTime);
     int getSize();
     void setSize(int newSize);
     bool canMove(char input);

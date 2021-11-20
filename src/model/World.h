@@ -16,8 +16,16 @@ public:
     void update();
     Entity* get_player() const;
     Map* get_map() const;
-    Bomb** get_tab_bomb() const;
-    void printTab();
+
+    //Fonctions d'explosion de bombes
+    Bomb**free_tab(Bomb** b);
+    Bomb**init_tab(Bomb** tab);
+    Bomb** get_tab_bomb();
+    void printTab(Bomb** tab);
+    void add_bomb(int x, int y, int time, int size);
+    void add_bomb(Bomb* b);
+    void explode(int indice);
+    void check_bomb();
 };
 
 

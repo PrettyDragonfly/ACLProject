@@ -4,18 +4,18 @@
 #include "Bomb.h"
 
 Bomb::Bomb(int x, int y, Map* map) : Entity(x, y, 0, map) {
-
+    //ajouter bombe au tableau
 }
 
 Bomb::Bomb(const Bomb &b) : Entity(b){
 
 }
 
-int Bomb::getTime() {
+float Bomb::getTime() {
     return timeBeforeExplose;
 }
 
-void Bomb::setTime(int newTime) {
+void Bomb::setTime(float newTime) {
     timeBeforeExplose = newTime;
 }
 
