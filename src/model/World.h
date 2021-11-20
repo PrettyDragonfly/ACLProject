@@ -7,6 +7,7 @@
 class World {
     Map* map;
     Entity* player;
+    Entity** tab_bomb;
 public:
     //TODO define a virtual destructor
     World();
@@ -14,6 +15,7 @@ public:
     void update();
     Entity* get_player() const;
     Map* get_map() const;
+    Entity** get_tab_bomb() const;
 };
 
 

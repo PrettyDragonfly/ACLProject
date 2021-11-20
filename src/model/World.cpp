@@ -6,6 +6,7 @@ World::World() {
     //std::cout << "World constructor called\n";
     map = new Map();
     player = new Player(1, 1, 10, this->map);
+    tab_bomb = new Entity*[50];
 }
 
 /**
@@ -30,4 +31,8 @@ World::~World() {
 
 Map* World::get_map() const{
     return map;
+}
+
+Entity** World::get_tab_bomb() const{
+    return tab_bomb;
 }
