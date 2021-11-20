@@ -6,13 +6,9 @@
 #define PROJETACL_BOMB_H
 
 #include "Entity.h"
-#include "../World.h"
 #include <utility>
-#include <iostream>
-
 
 class Bomb : public Entity{
-    World world;
 private:
     int timeBeforeExplose = 3;
     int size = 3;
@@ -24,7 +20,7 @@ public:
     void setTime(int newTime);
     int getSize();
     void setSize(int newSize);
-    void printTab();
+    bool canMove(char input);
 };
 
 #endif //PROJETACL_BOMB_H

@@ -3,11 +3,12 @@
 
 #include "map/Map.h"
 #include "entities/Entity.h"
+#include "entities/Bomb.h"
 
 class World {
     Map* map;
     Entity* player;
-    Entity** tab_bomb;
+    Bomb** tab_bomb;
 public:
     //TODO define a virtual destructor
     World();
@@ -15,7 +16,8 @@ public:
     void update();
     Entity* get_player() const;
     Map* get_map() const;
-    Entity** get_tab_bomb() const;
+    Bomb** get_tab_bomb() const;
+    void printTab();
 };
 
 
