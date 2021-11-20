@@ -25,6 +25,9 @@ run:	game
 game: 	src/main.cpp $(SRC) $(HEAD)
 	$(COMPILE) $(SRC) src/main.cpp -o $(CIBLE)
 
+test: test/test_pa.cpp $(SRC) $(HEAD)
+	$(COMPILE) $(SRC) test/test_pa.cpp -o test_pa
+
 clean:
 	rm -f $(CIBLE)
 	rm -f $(SRC)
