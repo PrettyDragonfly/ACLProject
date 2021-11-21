@@ -75,8 +75,8 @@ void Game_View::show_player(const Game& game) {
 }
 
 void Game_View::show_map(const Game& game) {
-    std::cout << "pout";
-    fflush(stdout);
+    //std::cout << "pout";
+    //fflush(stdout);
     int i,j;
     Map* map = game.get_map();
     SDL_Rect Rect_dest = {0,0,TILE_BORDER*4,TILE_BORDER*4};

@@ -19,6 +19,11 @@ public:
     Game();
     ~Game();
     void play();
+
+    //Setters
+    void set_gameover(bool b);
+
+    //Getters
     Entity * get_player() const;
     Map* get_map() const;
 
