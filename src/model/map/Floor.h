@@ -11,6 +11,8 @@ public:
     explicit Floor(int x, int y);
     void show() override;
     bool is_walkable() override;
+    bool is_floor() override;
+    bool is_ubreakable_wall() override;
     friend std::ostream& operator<<(std::ostream& os, const Floor& f);
 };
 

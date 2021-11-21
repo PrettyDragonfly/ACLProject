@@ -17,3 +17,11 @@ void Unbreakable_Wall::show() {
 Unbreakable_Wall::Unbreakable_Wall(int x, int y) : Tile(x, y) {
 
 }
+
+bool Unbreakable_Wall::is_floor() {
+    return false;
+}
+
+bool Unbreakable_Wall::is_ubreakable_wall() {
+    return true;
+}

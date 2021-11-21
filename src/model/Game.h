@@ -20,8 +20,11 @@ public:
     ~Game();
     void play();
     Entity * get_player();
+    Map* get_map() const;
 
     void show() const;
+    void init();
+    void clean();
 };
 
 #endif //PROJET_GAME_H

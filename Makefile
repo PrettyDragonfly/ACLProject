@@ -1,5 +1,6 @@
 COMPILE = g++ -Wall
 CIBLE = game
+SDL = -lSDL2main -lSDL2
 
 #folders
 ENT = src/model/entities/
@@ -23,7 +24,7 @@ run:	game
 	./game
 
 game: 	src/main.cpp $(SRC) $(HEAD)
-	$(COMPILE) $(SRC) src/main.cpp -o $(CIBLE)
+	$(COMPILE) $(SRC) src/main.cpp -o $(CIBLE) $(SDL)
 
 clean:
 	rm -f $(CIBLE)

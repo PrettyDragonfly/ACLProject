@@ -19,6 +19,7 @@ public:
 
     //Getter
     Tile* get_tile(int x, int y);
+    int get_size();
 
     //Setters
 
