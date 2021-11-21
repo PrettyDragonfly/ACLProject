@@ -19,7 +19,7 @@ public:
     Game();
     ~Game();
     void play();
-    Entity * get_player();
+    Entity * get_player() const;
     Map* get_map() const;
 
     void show() const;

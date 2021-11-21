@@ -17,7 +17,7 @@ public:
     void init();
     void refresh(const Game& game);
     void show_map(const Game& game);
-    void show_player();
+    void show_player(const Game& game);
     void create_tileset();
 };
 

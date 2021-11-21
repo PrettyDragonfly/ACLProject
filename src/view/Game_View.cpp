@@ -9,8 +9,9 @@ const int WIN_H = 640;
 const int WIN_W = 640;
 const short TILE_BORDER = 16;
 const short TILE_SIZE = 3;
-const short RECT_SIZE = TILE_SIZE;
+const short RECT_SIZE = TILE_SIZE + 2;
 const char* filename = "src/ressources/PixelPackTOPDOWN1BIT-export.bmp";
+const char* playerfile = "src/ressources/HEROS_PixelPackTOPDOWN1BIT_Dog Idle D.bmp";
 
 //Tous ces objets devraient etre des attributs de Game_View mais pour une raison obscure, une segfault apparait si on met
 // un seul de ces objets en attribut
@@ -18,7 +19,9 @@ typedef struct obj {
     SDL_Window *window;
     SDL_Renderer *renderer;
     SDL_Texture *tileset;
+    SDL_Texture *player;
     SDL_Rect *tabtile;
+    int cpt;
 } obj_t;
 obj_t o {nullptr, nullptr, nullptr};
 
@@ -41,25 +44,34 @@ void Game_View::init() {
     SDL_Surface* tmp = SDL_LoadBMP(filename);
     o.tileset = SDL_CreateTextureFromSurface(o.renderer, tmp);
     SDL_FreeSurface(tmp);
+    //Creation du player
+    tmp = SDL_LoadBMP(playerfile);
+    Uint32 colorkey = SDL_MapRGB( tmp->format, 192, 255, 238); //Constantes
+    SDL_SetColorKey(tmp, SDL_TRUE,colorkey);
+    o.player = SDL_CreateTextureFromSurface(o.renderer, tmp);
+    SDL_FreeSurface(tmp);
     //Creation des rectangles
     o.tabtile = new SDL_Rect[RECT_SIZE];
     o.tabtile[0] = {0,16, TILE_BORDER, TILE_BORDER};
     o.tabtile[1] = {80, 0, TILE_BORDER, TILE_BORDER};
+    //Tile [2] = Tile du breakable wall
+    o.tabtile[3] = {0,0,TILE_BORDER, TILE_BORDER};
 }
 
 void Game_View::refresh(const Game& game){
     SDL_RenderClear(o.renderer);
     show_map(game);
-    //show_player();
+    show_player(game);
     SDL_RenderPresent(o.renderer);
 }
 
-void Game_View::show_player() {
-    /**
-    SDL_Rect src = {0,16,16,16};
-    SDL_Rect dst = {0, 0, 16, 16};
-    SDL_RenderCopy(o.renderer, o.tileset, &src, &dst);
-    **/
+void Game_View::show_player(const Game& game) {
+    int x = game.get_player()->get_x_position();
+    int y = game.get_player()->get_y_position();
+    SDL_Rect Rect_dest = {0,0,TILE_BORDER*4,TILE_BORDER*4};
+    Rect_dest.x = x*TILE_BORDER*4;
+    Rect_dest.y = y*TILE_BORDER*4;
+    SDL_RenderCopy(o.renderer,o.player,&(o.tabtile[3]),&Rect_dest);
 }
 
 void Game_View::show_map(const Game& game) {

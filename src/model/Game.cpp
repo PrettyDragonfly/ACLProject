@@ -19,7 +19,7 @@ Game::Game() {
     im->set_game(this);
 }
 
-Entity * Game::get_player() {
+Entity * Game::get_player() const{
     return world.get_player();
 }
 
