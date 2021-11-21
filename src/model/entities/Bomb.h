@@ -15,6 +15,7 @@ private:
 public:
     Bomb();
     Bomb(int x, int y, Map* map);
+    Bomb(int x, int y, Map* map, int taille, int temps);
     Bomb(const Bomb& b);
     float getTime();
     void setTime(float newTime);

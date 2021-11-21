@@ -78,21 +78,29 @@ void World::printTab(Bomb** tab) {
    // Bomb** tab = tab_bomb;
     int taille = tab[0]->get_health(); //on met la taille ici 
 
+    if (taille == 0) std::cout << "Tableau vide" << endl; 
+
     for(int i = 1; i <= taille; i++) {
         int x_bombe = tab[i]->get_x_position();
         int y_bombe = tab[i]->get_y_position();
-        int time = tab[i]->getTime();
+        float time = tab[i]->getTime();
 
-        std::cout << x_bombe << " " << y_bombe << endl;
+        std::cout << x_bombe << " " << y_bombe << " " << time << endl;
     }
+}
+
+
+bool World::tab_vide() {
+    if (tab_bomb[0]->get_health() == 0) return true;
+    else return false;
 }
 
 //Fonction pour ajouter une bombe (l'ajoute au tableau accessoirement)
 void World::add_bomb(int x, int y, int time, int size) {
-    std::cout << "add_bomb" << endl;
-    std::cout << tab_bomb << endl;
+    //std::cout << "add_bomb" << endl;
+    //std::cout << tab_bomb << endl;
     int taille = (tab_bomb[0]->get_health())+1; //on recupere l'indice d'insertion
-    std::cout << "ouioui" << endl;
+    //std::cout << "ouioui" << endl;
     tab_bomb[0]->set_health(taille);
     tab_bomb[taille]->set_position(x, y);
     tab_bomb[taille]->setTime(time);
@@ -101,11 +109,11 @@ void World::add_bomb(int x, int y, int time, int size) {
 
 void World::add_bomb(Bomb* b) {
     
-    std::cout << tab_bomb << endl;
+   // std::cout << tab_bomb << endl;
     int taille = tab_bomb[0]->get_health()+1; //on recupere l'indice d'insertion
-    std::cout << taille << endl;
+    //std::cout << taille << endl;
     tab_bomb[0]->set_health(taille);
-    std::cout << "add_bomb" << endl;
+    //std::cout << "add_bomb" << endl;
     tab_bomb[taille]->set_health(b->get_health());
     tab_bomb[taille]->set_position(b->get_x_position(), b->get_y_position());
     tab_bomb[taille]->setSize(b->getSize());
@@ -120,6 +128,7 @@ void World::explode(int indice) {
     int taille = tab_bomb[0]->get_health();
     if (taille == indice) { 
         //il s'agit de la dernière bombe du tableau, on décrémente
+        std::cout << taille << endl;
         tab_bomb[0]->set_health(taille-1);
     } else {
         //on met la dernière bombe à la place de celle qui a explosé
@@ -139,13 +148,14 @@ void World::check_bomb() {
 
     int taille = tab_bomb[0]->get_health();
     //le temps d'une bombe est ecoulée on la fait péter
-    for (int i = 1; i < taille; i++) {
+    for (int i = 1; i <= taille; i++) {
+        float unite_temps = 0.1;
+
         if (tab_bomb[i]->getTime() <= 0) { 
             explode(i);
-        } else {
-            //enlever une unité de temps à la bombe
-            //float time = tab_bomb[i]->getTime();
-            //tab_bomb[i]->setTime(time-unite_temps);
         }
+        //enlever une unité de temps à la bombe
+        float time = tab_bomb[i]->getTime();
+        tab_bomb[i]->setTime(time-unite_temps);
     }
 }

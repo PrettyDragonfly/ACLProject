@@ -22,6 +22,7 @@ public:
     Bomb**init_tab(Bomb** tab);
     Bomb** get_tab_bomb();
     void printTab(Bomb** tab);
+    bool tab_vide();
     void add_bomb(int x, int y, int time, int size);
     void add_bomb(Bomb* b);
     void explode(int indice);
