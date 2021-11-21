@@ -11,7 +11,9 @@ int main() {
     int taille = (w.get_tab_bomb())[0]->get_health();
     std::cout << taille << endl;
     w.add_bomb(&b);
+    Bomb** t = w.get_tab_bomb();
     //Bomb** bom = w.init_tab(bom);
+    w.printTab(t);
     w.printTab(w.get_tab_bomb());
     //m->show();
 }
