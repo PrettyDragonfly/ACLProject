@@ -6,6 +6,8 @@
 #define PROJET_BREAKABLE_WALL_H
 
 #include "Tile.h"
+#include "../entities/Bomb.h"
+#include "Map.h"
 #include <ostream>
 #include<utility>
 
@@ -14,6 +16,7 @@ public:
     bool is_walkable() override;
     explicit Breakable_Wall(int x, int y);
     void show() override;
+    void Break(Breakable_Wall* wall, Bomb* bomb, Map* map);
     friend std::ostream& operator<<(std::ostream& os, Breakable_Wall uw);
 };
 
