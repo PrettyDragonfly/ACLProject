@@ -27,6 +27,7 @@ public:
     void add_bomb(Bomb* b);
     void explode(int indice);
     void check_bomb();
+    void pose_bomb(char c);
 };
 
 

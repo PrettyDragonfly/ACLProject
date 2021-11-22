@@ -20,6 +20,8 @@ public:
     ~Game();
     void play();
     Entity * get_player();
+    World* get_world();
+
 
     Map* getMap();
     void show() const;

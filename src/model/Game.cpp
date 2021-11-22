@@ -22,6 +22,10 @@ Entity * Game::get_player() {
     return world.get_player();
 }
 
+World* Game::get_world(){
+    return &world;
+}
+
 Game::~Game() {
     delete im;
 }

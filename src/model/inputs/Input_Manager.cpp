@@ -17,6 +17,9 @@ void Input_Manager::process_input(){
     Entity* player = g->get_player();
     //std::cout << &player;
     player->canMove(std::toupper(input));
+    
+    World* world = g->get_world();
+    world->pose_bomb(std::toupper(input));
 }
 
 void Input_Manager::get_input() {

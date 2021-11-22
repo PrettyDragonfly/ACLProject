@@ -159,3 +159,15 @@ void World::check_bomb() {
         tab_bomb[i]->setTime(time-unite_temps);
     }
 }
+
+//Fonction qui permet de poser une bombe (ajout au tableau)
+//Pour l'instant pas bloquant pour déplacement sur bombe
+void World::pose_bomb(char c) {
+    if (c == 'B') {
+        int x = player->get_x_position();
+        int y = player->get_y_position();
+        map->setTile(x, y, 'B');
+        add_bomb(x, y, 3, 5);
+    }
+    
+}
