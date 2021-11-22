@@ -26,3 +26,7 @@ int Bomb::getSize() {
 void Bomb::setSize(int newSize) {
     size = newSize;
 }
+
+bool Bomb::canMove(char input) {
+    return true;
+}

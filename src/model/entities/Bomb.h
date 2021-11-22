@@ -20,6 +20,7 @@ public:
     void setTime(int newTime);
     int getSize();
     void setSize(int newSize);
+    bool canMove(char input);
 };
 
 #endif //PROJETACL_BOMB_H
