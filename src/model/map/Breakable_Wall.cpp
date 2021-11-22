@@ -37,3 +37,5 @@ void Breakable_Wall::Break(Breakable_Wall* wall, Bomb* bomb, Map* map) {
         }
     }
 }
+
+
