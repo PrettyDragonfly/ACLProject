@@ -10,8 +10,10 @@ const int WIN_W = 640;
 const short TILE_BORDER = 16;
 const short TILE_SIZE = 3;
 const short RECT_SIZE = TILE_SIZE + 2;
+const short BOMB_SIZE = 50;
 const char* filename = "src/ressources/PixelPackTOPDOWN1BIT-export.bmp";
 const char* playerfile = "src/ressources/HEROS_PixelPackTOPDOWN1BIT_Dog Idle D.bmp";
+const char* bombfile = "src/ressources/item1BIT_bomb-export.bmp";
 
 //Tous ces objets devraient etre des attributs de Game_View mais pour une raison obscure, une segfault apparait si on met
 // un seul de ces objets en attribut
@@ -20,6 +22,7 @@ typedef struct obj {
     SDL_Renderer *renderer;
     SDL_Texture *tileset;
     SDL_Texture *player;
+    SDL_Texture *bomb;
     SDL_Rect *tabtile;
     int cpt;
 } obj_t;
@@ -46,9 +49,13 @@ void Game_View::init() {
     SDL_FreeSurface(tmp);
     //Creation du player
     tmp = SDL_LoadBMP(playerfile);
-    Uint32 colorkey = SDL_MapRGB( tmp->format, 192, 255, 238); //Constantes
+    Uint32 colorkey = SDL_MapRGB( tmp->format, 192, 255, 238); //Constantes poru la transparence
     SDL_SetColorKey(tmp, SDL_TRUE,colorkey);
     o.player = SDL_CreateTextureFromSurface(o.renderer, tmp);
+    SDL_FreeSurface(tmp);
+    //Creation de la bombe
+    tmp = SDL_LoadBMP(bombfile);
+    o.bomb = SDL_CreateTextureFromSurface(o.renderer, tmp);
     SDL_FreeSurface(tmp);
     //Creation des rectangles
     o.tabtile = new SDL_Rect[RECT_SIZE];
@@ -61,6 +68,7 @@ void Game_View::init() {
 void Game_View::refresh(const Game& game){
     SDL_RenderClear(o.renderer);
     show_map(game);
+    show_bombs(game);
     show_player(game);
     SDL_RenderPresent(o.renderer);
 }
@@ -95,6 +103,23 @@ void Game_View::show_map(const Game& game) {
             else{
                 SDL_RenderCopy(o.renderer,o.tileset,&(o.tabtile[1]),&Rect_dest);
             }
+        }
+    }
+}
+
+void Game_View::show_bombs(const Game& game) {
+    Bomb** tab = game.get_tab_bomb();
+
+    int taille = tab[0]->get_health();
+
+    if (taille > 0){
+        for(int i = 1; i <= taille; i++) {
+            int x = tab[i]->get_x_position();
+            int y = tab[i]->get_y_position();
+            SDL_Rect Rect_dest = {0,0,TILE_BORDER*4,TILE_BORDER*4};
+            Rect_dest.x = x*TILE_BORDER*4;
+            Rect_dest.y = y*TILE_BORDER*4;
+            SDL_RenderCopy(o.renderer, o.bomb, &(o.tabtile[3]), &Rect_dest);
         }
     }
 }

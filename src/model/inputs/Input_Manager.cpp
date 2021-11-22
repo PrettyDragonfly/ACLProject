@@ -50,6 +50,7 @@ void Input_Manager::move_perso(Game &game) {
     const Uint8* keystates;
     SDL_PumpEvents();
     Entity* player = game.get_player();
+    World* world = g->get_world();
     keystates = SDL_GetKeyboardState(NULL);
 
     if(keystates[SDL_SCANCODE_W] || keystates[SDL_SCANCODE_UP]){
@@ -63,5 +64,8 @@ void Input_Manager::move_perso(Game &game) {
     }
     if(keystates[SDL_SCANCODE_D] || keystates[SDL_SCANCODE_RIGHT]){
         player->canMove('D');
+    }
+    if(keystates[SDL_SCANCODE_SPACE]){
+        world->pose_bomb('B');
     }
 }

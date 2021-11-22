@@ -25,6 +25,10 @@ Entity * Game::get_player() const{
     return world.get_player();
 }
 
+World* Game::get_world() {
+    return &world;
+}
+
 Game::~Game() {
     delete im;
 }
@@ -50,3 +54,6 @@ void Game::set_gameover(bool b) {
     gameover = b;
 }
 
+Bomb** Game::get_tab_bomb() const{
+    return world.get_tab_bomb();
+}

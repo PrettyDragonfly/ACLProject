@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Map.h"
 #include "Floor.h"
+#include "Breakable_Wall.h"
 #include "Unbreakable_Wall.h"
 
 /**
@@ -63,7 +64,7 @@ Tile* Map::get_tile(int x, int y) {
 std::ostream &operator<<(std::ostream &os, Map& map) {
     for(int j = 0; j < map.size; j++){
         for(int i = 0; i<map.size; i++){
-            map.map[i][j]->show();
+            map.map[j][i]->show();
         }
         std::cout << "\n";
     }
@@ -91,4 +92,24 @@ void Map::show() {
 
 int Map::get_size() {
     return size;
+}
+
+void Map::setTile(int x, int y, char tile) {
+    switch(tile) {
+        case '0':
+            map[x][y] = new Floor(x,y);
+            //cout <<"SOL ";
+            break;
+        case '1':
+            map[x][y] = new Breakable_Wall(x,y);
+            //cout << "MUR ";
+            break;
+        case '2':
+            map[x][y] = new Unbreakable_Wall(x,y);
+            //cout << "MUR INCASSABLE ";
+            break;
+        default:
+            //cout << "NOTHING" << endl;
+            break;
+    }
 }

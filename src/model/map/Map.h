@@ -28,6 +28,7 @@ public:
     void verify();
     void show();
 
+    void setTile(int x, int y, char tile);
     //friends
     friend std::ostream & operator<<(std::ostream &os, Map& map);
 };

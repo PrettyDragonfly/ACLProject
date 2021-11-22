@@ -8,8 +8,8 @@
 class Game;
 
 class Input_Manager {
-    Game* g{};
-    char input{};
+    Game* g;
+    char input;
 public:
     Input_Manager();
     Input_Manager(Game* pGame);
