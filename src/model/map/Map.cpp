@@ -97,14 +97,17 @@ int Map::getSize() {
 void Map::setTile(int x, int y, char tile) {
     switch(tile) {
         case '0':
+            delete map[x][y];
             map[x][y] = new Floor(x,y);
             //cout <<"SOL ";
             break;
         case '1':
+            delete map[x][y];
             map[x][y] = new Breakable_Wall(x,y);
             //cout << "MUR ";
             break;
         case '2':
+            delete map[x][y];
             map[x][y] = new Unbreakable_Wall(x,y);
             //cout << "MUR INCASSABLE ";
             break;

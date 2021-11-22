@@ -7,6 +7,7 @@
 #include<utility>
 
 class Floor : public Tile{
+
 public:
     explicit Floor(int x, int y);
     void show() override;

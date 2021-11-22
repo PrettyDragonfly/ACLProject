@@ -9,6 +9,7 @@ class World {
     Map* map;
     Entity* player;
     Bomb** tab_bomb;
+    //Entity* enemy;    //pour plus tard
 public:
     //TODO define a virtual destructor
     World();
