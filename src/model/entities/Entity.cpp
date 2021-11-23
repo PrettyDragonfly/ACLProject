@@ -23,6 +23,11 @@ void Entity::move(int x_, int y_) {
     y = y_;
 }
 
+bool Entity::canMove(char input) {
+    return true;
+};
+
+
 int Entity::get_health() const {
     return health;
 }

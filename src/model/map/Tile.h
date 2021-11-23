@@ -14,6 +14,8 @@ public:
     explicit Tile(int x_, int y_);
     virtual bool is_walkable() = 0;
     virtual void show() = 0;
+    virtual bool is_floor() = 0;
+    virtual bool is_ubreakable_wall() = 0;
     void set_position(int x_, int y_);
     int get_x_position();
     int get_y_position();

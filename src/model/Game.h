@@ -19,9 +19,20 @@ public:
     Game();
     ~Game();
     void play();
-    Entity * get_player();
 
+    //Setters
+    void set_gameover(bool b);
+
+    //Getters
+    Entity * get_player() const;
+    Map* get_map() const;
+    World* get_world();
+    Bomb** get_tab_bomb() const;
+
+    Map* getMap();
     void show() const;
+    void init();
+    void clean();
 };
 
 #endif //PROJET_GAME_H
