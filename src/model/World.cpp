@@ -14,7 +14,7 @@ World::World() {
  * @brief Update function for the world
  */
 void World::update() {
-
+    check_bomb();
 }
 
 /**
@@ -168,7 +168,7 @@ void World::pose_bomb(char c) {
         int x = player->get_x_position();
         int y = player->get_y_position();
         map->setTile(x, y, 'B');
-        add_bomb(x, y, 3, 5);
+        add_bomb(x, y, 2, 5);
     }
     
 }
