@@ -2,7 +2,7 @@
 #define PROJET_INPUT_MANAGER_H
 
 #include "../Game.h"
-#include <SDL2/include/SDL.h>
+#include <SDL2/SDL.h>
 
 //Forward declaration
 class Game;
