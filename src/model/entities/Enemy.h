@@ -11,7 +11,8 @@ class Enemy : Entity{
 public:
     Enemy(pair<int, int> _pos, int _ptVie, Map* map);
     /**Fonction that follows the player**/
-    Follow(Player* player);
+    void Follow(Player* player);
+    void RandomMove();
 };
 
 #endif //PROJETACL_ENEMY_H

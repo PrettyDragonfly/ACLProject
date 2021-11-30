@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include "model/map/Map.h"
+#include "../model/map/Map.h"
 
 using namespace std;
 

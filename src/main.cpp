@@ -1,5 +1,5 @@
 #include "model/Game.h"
-#include "FileReader.cpp"
+#include "ressources/FileReader.cpp"
 
 int main(int argc, char** argv) {
     Game g;
