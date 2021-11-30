@@ -1,4 +1,4 @@
-COMPILE = g++ -Wall
+COMPILE = g++ -Wall -std=c++17
 CIBLE = game
 SDL = -lSDL2main -lSDL2
 
