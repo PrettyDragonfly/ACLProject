@@ -3,7 +3,7 @@
 //
 #include "Enemy.h"
 
-Enemy::Enemy(pair<int, int> _pos, int _ptVie, Map* map) : Entity(_pos, _ptVie, map) {}
+Enemy::Enemy(int x, int y, int _ptVie, Map* map) : Entity( x, y, _ptVie, map) {}
 
 void Enemy::Follow(Player* player) {}
 

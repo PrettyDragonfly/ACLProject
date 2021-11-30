@@ -11,10 +11,10 @@ VUE = src/view/
 RES = src/ressources/
 
 #sources
-SRC = $(MOD)game.o $(MOD)world.o $(MAP)map.o $(MAP)floor.o $(MAP)tile.o $(MAP)breakwall.o $(MAP)unbreakwall.o $(ENT)entity.o $(ENT)player.o $(ENT)bomb.o $(VUE)game_view.o $(INP)input.o $(RES)filereader.o
+SRC = $(MOD)game.o $(MOD)world.o $(MAP)map.o $(MAP)floor.o $(MAP)tile.o $(MAP)breakwall.o $(MAP)unbreakwall.o $(ENT)entity.o $(ENT)player.o $(ENT)bomb.o $(VUE)game_view.o $(INP)input.o $(ENT)enemy.o
 
 #headers
-HEAD = $(MOD)Game.h $(MOD)World.h $(MAP)Map.h $(MAP)Floor.h $(MAP)Tile.h $(MAP)Breakable_Wall.h $(MAP)Unbreakable_Wall.h $(ENT)Entity.h $(ENT)Player.h $(ENT)Bomb.h  $(VUE)Game_View.h $(INP)Input_Manager.h 
+HEAD = $(MOD)Game.h $(MOD)World.h $(MAP)Map.h $(MAP)Floor.h $(MAP)Tile.h $(MAP)Breakable_Wall.h $(MAP)Unbreakable_Wall.h $(ENT)Entity.h $(ENT)Player.h $(ENT)Bomb.h  $(VUE)Game_View.h $(INP)Input_Manager.h $(ENT)Enemy.h
 
 ########################################################################################################################
 
@@ -72,5 +72,6 @@ $(ENT)bomb.o: 		$(ENT)Bomb.cpp 					$(ENT)Bomb.h
 $(VUE)game_view.o: 		$(VUE)Game_View.cpp 		$(VUE)Game_View.h
 	$(COMPILE)	-c 	$(VUE)Game_View.cpp			-o 	$(VUE)game_view.o
 
-$(RES)filereader.o:	$(RES)FileReader.cpp
-	$(COMPILE)	-c	$(RES)FileReader.cpp			-o	$(RES)filereader.o
+$(ENT)enemy.o:			$(ENT)Enemy.cpp			$(ENT)Enemy.h
+	$(COMPILE)	-c	$(ENT)Enemy.cpp				-o	$(ENT)enemy.o
+

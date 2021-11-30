@@ -4,12 +4,12 @@
 #ifndef PROJETACL_ENEMY_H
 #define PROJETACL_ENEMY_H
 
-#include "Entity.h"
+#include "Player.h"
 #include <utility>
 
 class Enemy : Entity{
 public:
-    Enemy(pair<int, int> _pos, int _ptVie, Map* map);
+    Enemy(int x, int y, int _ptVie, Map* map);
     /**Fonction that follows the player**/
     void Follow(Player* player);
     void RandomMove();
