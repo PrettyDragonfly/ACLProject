@@ -11,6 +11,9 @@
 Map::Map() {
     //std::cout << "Map constructor called\n";
     map = new Tile**[size];
+    for (int i = 0; i < size; i++) {
+        map[i] = new Tile *[size];
+    }
     readFile(this);
     /**
     for (int i = 0; i < size; i++) {
