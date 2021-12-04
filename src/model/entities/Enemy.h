@@ -8,12 +8,19 @@
 #include <utility>
 
 class Enemy : Entity{
+private:
+    bool move = false;
+    char Direction = 'Q';
 public:
     Enemy(int x, int y, int _ptVie, Map* map);
     /**Fonction that follows the player**/
     void Follow(Player* player);
     /**Random enemy's moves**/
     void RandomMove();
+    bool isMoving();
+    void setMove(bool ismoving);
+    char getDirection();
+    void setDirection(char dir);
 };
 
 #endif //PROJETACL_ENEMY_H
