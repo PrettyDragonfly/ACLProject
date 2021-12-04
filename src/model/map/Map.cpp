@@ -29,8 +29,8 @@ Map::Map() {
             }
         }
         map[i][9] = new Unbreakable_Wall(i, 9);
-    }
-    //verify();**/
+    }**/
+    verify();
 }
 
 /**
