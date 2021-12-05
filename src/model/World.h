@@ -9,6 +9,8 @@ class World {
     Map* map;
     Entity* player;
     Bomb** tab_bomb;
+    Entity **tab_entite;
+
 public:
     //TODO define a virtual destructor
     World();
@@ -16,6 +18,15 @@ public:
     void update();
     Entity* get_player() const;
     Map* get_map() const;
+
+    //Fonctions de tableau d'entites
+    Entity** get_tab_entite() const;
+    Entity** free_entite(Entity** e);
+    Entity** init_entite(Entity** tab);
+    void add_entite(int x, int y);
+    void add_entite(Entity* b);
+    void check_entite();
+    void print(Entity** tab);
 
     //Fonctions d'explosion de bombes
     Bomb**free_tab(Bomb** b);
