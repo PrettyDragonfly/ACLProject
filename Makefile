@@ -1,6 +1,6 @@
 COMPILE = g++ -Wall -std=c++17
 CIBLE = game
-SDL = -lSDL2 -lSDL2_image
+SDL = -lSDL2
 
 #folders
 ENT = src/model/entities/
