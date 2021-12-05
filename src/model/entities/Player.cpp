@@ -48,7 +48,3 @@ void Player::move(int x_, int y_) {
     set_position(x_, y_);
 }
 
-void Player::set_value(int v){
-    value = v;
-}
-

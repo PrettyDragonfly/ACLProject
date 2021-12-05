@@ -5,7 +5,6 @@
 #include <utility>
 
 class Player : public Entity{
-    int value;
 public:
     Player();
 
@@ -13,7 +12,6 @@ public:
     Player(const Player& p);
     bool canMove(char Direction);
     void move(int x, int y);
-    void set_value(int v);
 
 };
 

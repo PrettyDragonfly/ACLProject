@@ -23,7 +23,7 @@ public:
     Entity** get_tab_entite() const;
     Entity** free_entite(Entity** e);
     Entity** init_entite(Entity** tab);
-    void add_entite(int x, int y);
+    void add_entite(int x, int y, int life, int value);
     void add_entite(Entity* b);
     void check_entite();
     void print(Entity** tab);

@@ -74,19 +74,22 @@ Entity**World::init_entite(Entity** tab) {
         //std::cout << &(tab[i]) << endl;
         tab_entite[i]->set_health(0);
         tab_entite[i]->set_position(0, 0);
+        tab_entite[i]->set_value(0);
         //std::cout << tab[i]->get_health() << endl;
     }
     return tab;
 }
 
 //Fonction pour ajouter une bombe (l'ajoute au tableau accessoirement)
-void World::add_entite(int x, int y) {
+void World::add_entite(int x, int y, int life, int value) {
     //std::cout << "add_bomb" << endl;
     //std::cout << tab_bomb << endl;
     int taille = (tab_entite[0]->get_health())+1; //on recupere l'indice d'insertion
     //std::cout << "ouioui" << endl;
     tab_entite[0]->set_health(taille);
     tab_entite[taille]->set_position(x, y);
+    tab_entite[taille]->set_health(life);
+    tab_entite[taille]->set_value(value);
 }
 
 void World::add_entite(Entity* b) {
@@ -98,6 +101,7 @@ void World::add_entite(Entity* b) {
     //std::cout << "add_bomb" << endl;
     tab_entite[taille]->set_health(b->get_health());
     tab_entite[taille]->set_position(b->get_x_position(), b->get_y_position());
+    tab_entite[taille]->set_value(b->get_value());
 }
 
 //Fonction qui verifie si un joueur est mort
@@ -110,7 +114,7 @@ void World::check_entite() {
             //une unité est morte
             //si c'est le perso fin de partie
             //si c'est un monstre
-            std::cout << "valeur : " << tab_entite[i]->get_value() << endl;
+            //std::cout << "valeur : " << tab_entite[i]->get_value() << endl;
             if(tab_entite[i]->get_value() == 1) { //on le supprime du tableau
                 if (taille == i){
                     //il s'agit du dernier élément du tableau, on décrémente
@@ -122,10 +126,12 @@ void World::check_entite() {
                     int x_last = tab_entite[taille]->get_x_position();
                     int y_last = tab_entite[taille]->get_y_position();
                     int life = tab_entite[taille]->get_health();
+                    int valeur = tab_entite[taille]->get_value();
 
                     tab_entite[0]->set_health(taille - 1);
                     tab_entite[i]->set_health(life);
                     tab_entite[i]->set_position(x_last, y_last);
+                    tab_entite[i]->set_value(valeur);
                 }
             }
         }
@@ -141,8 +147,9 @@ void World::print(Entity** tab){
         int x_bombe = tab[i]->get_x_position();
         int y_bombe = tab[i]->get_y_position();
         int vie = tab[i]->get_health();
+        int valeur = tab[i]->get_value();
 
-        std::cout << x_bombe << " " << y_bombe << " " << vie << endl;
+        std::cout << x_bombe << " " << y_bombe << " " << vie << " " << "(" << valeur << ")" << endl;
     }
 }
 
