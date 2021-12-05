@@ -27,6 +27,7 @@ public:
     void add_entite(Entity* b);
     void check_entite();
     void print(Entity** tab);
+    bool tab_entite_vide();
 
     //Fonctions d'explosion de bombes
     Bomb**free_tab(Bomb** b);

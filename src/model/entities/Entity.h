@@ -10,6 +10,7 @@ class Entity {
     int x;
     int y;
     int health;
+    int value;
     Map* map;
 public:
     //Constructors
@@ -27,10 +28,12 @@ public:
     Map* get_map();
     int get_x_position() const;
     int get_y_position() const;
+    int get_value() const;
 
     //Setters
     void set_health(int newHealth);
     void set_position(int x, int y);
+    void set_value(int v);
 
     //Friends functions
     friend ostream & operator<<(ostream &os, const Entity *ent);

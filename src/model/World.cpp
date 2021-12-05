@@ -110,7 +110,8 @@ void World::check_entite() {
             //une unité est morte
             //si c'est le perso fin de partie
             //si c'est un monstre
-            if(1) { //on le supprime du tableau
+            std::cout << "valeur : " << tab_entite[i]->get_value() << endl;
+            if(tab_entite[i]->get_value() == 1) { //on le supprime du tableau
                 if (taille == i){
                     //il s'agit du dernier élément du tableau, on décrémente
                     //ajout de points ?
@@ -141,9 +142,16 @@ void World::print(Entity** tab){
         int y_bombe = tab[i]->get_y_position();
         int vie = tab[i]->get_health();
 
-        std::cout << x_bombe << " " << y_bombe << " " << time << endl;
+        std::cout << x_bombe << " " << y_bombe << " " << vie << endl;
     }
 }
+
+//Fonction qui test si le tableau est vide
+bool World::tab_entite_vide() {
+    if (tab_entite[0]->get_health() == 0) return true;
+    else return false;
+}
+
 
 
 //###############################################################
