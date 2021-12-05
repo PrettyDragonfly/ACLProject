@@ -10,6 +10,7 @@ World::World() {
     Entity **tab_entite;
     init_tab(tab_bomb);
     init_entite(tab_entite);
+    add_entite(player);
 }
 
 /**
@@ -17,7 +18,7 @@ World::World() {
  */
 void World::update() {
     check_bomb();
-    //check_entite();
+    check_entite();
 }
 
 /**
@@ -115,7 +116,7 @@ void World::check_entite() {
             //si c'est le perso fin de partie
             //si c'est un monstre
             //std::cout << "valeur : " << tab_entite[i]->get_value() << endl;
-            if(tab_entite[i]->get_value() == 1) { //on le supprime du tableau
+            if(tab_entite[i]->get_value() == 2) { //on le supprime du tableau
                 if (taille == i){
                     //il s'agit du dernier élément du tableau, on décrémente
                     //ajout de points ?
@@ -268,6 +269,7 @@ void World::explode(int indice) {
     int min_explosion_x = tab_bomb[indice]->get_x_position();
     int min_explosion_y = tab_bomb[indice]->get_y_position();
 
+
     //on cherche si de la position actuelle jusqu'à la taille de l'explosion il y'a un mur incassable
     Tile* tuile = nullptr;
 
@@ -297,11 +299,11 @@ void World::explode(int indice) {
     //à la suite des while on a les max et min de l'explosion tant qu'elle ne recontre rien d'incassable
 
     //INFLIGER LES DEGATS
-    //boucle sur la ligne
     for(int i = x - portee; i <= x + portee; i++) { 
         //si on croise une tile cassable on la transforme en floor
         tuile = map->get_tile(i, y);
-        if (!(tuile->is_ubreakable_wall()) && i <= max_explosion_x && i >= min_explosion_x) {
+        if (i <= max_explosion_x && i >= min_explosion_x && !(tuile->is_ubreakable_wall())) {
+            //std::cout << i << " " << y << endl;
             map->setTile(i, y, '0');
         }
         //on parcourt le tableau d'entités
@@ -311,14 +313,14 @@ void World::explode(int indice) {
                 tab_entite[j]->set_health(vie-1);
             }
         }
-        //if () entité bah elle meurt
     }
 
     //boucle sur la colonne
     for(int i = y - portee; i <= y + portee; i++) { 
         tuile = map->get_tile(x, i);
         //si on croise une tile cassable on la transforme en floor
-        if (!(tuile->is_ubreakable_wall()) && i <= max_explosion_y && i >= min_explosion_y) {
+        if (i <= max_explosion_y && i >= min_explosion_y && !(tuile->is_ubreakable_wall())) {
+            //std::cout << x << " " << i << endl;
             map->setTile(x, y, '0');
         }
         //on parcourt le tableau d'entités
@@ -328,9 +330,9 @@ void World::explode(int indice) {
                 tab_entite[j]->set_health(vie-1);
             }
         }
-        //if () entité bah elle meurt
     }
 
+    //Supprimer la bombe du tableau
     int taille = tab_bomb[0]->get_health();
     if (taille == indice) { 
         //il s'agit de la dernière bombe du tableau, on décrémente
