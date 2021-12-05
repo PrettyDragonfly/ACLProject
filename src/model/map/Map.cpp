@@ -3,6 +3,7 @@
 #include "Floor.h"
 #include "Breakable_Wall.h"
 #include "Unbreakable_Wall.h"
+#include "../../ressources/FileReader.h"
 
 /**
  * @brief Map constructor with no specified file then simple map
@@ -10,6 +11,11 @@
 Map::Map() {
     //std::cout << "Map constructor called\n";
     map = new Tile**[size];
+    for (int i = 0; i < size; i++) {
+        map[i] = new Tile *[size];
+    }
+    readFile(this);
+    /**
     for (int i = 0; i < size; i++) {
         map[i] = new Tile*[size];
         map[i][0] = new Unbreakable_Wall(i, 0);
@@ -23,8 +29,8 @@ Map::Map() {
             }
         }
         map[i][9] = new Unbreakable_Wall(i, 9);
-    }
-    //verify();
+    }**/
+    verify();
 }
 
 /**

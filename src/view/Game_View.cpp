@@ -47,7 +47,7 @@ void Game_View::init() {
     SDL_Surface* tmp = SDL_LoadBMP(filename);
     o.tileset = SDL_CreateTextureFromSurface(o.renderer, tmp);
     SDL_FreeSurface(tmp);
-    //Creation du player
+    //Creation du player(
     tmp = SDL_LoadBMP(playerfile);
     Uint32 colorkey = SDL_MapRGB( tmp->format, 192, 255, 238); //Constantes poru la transparence
     SDL_SetColorKey(tmp, SDL_TRUE,colorkey);
