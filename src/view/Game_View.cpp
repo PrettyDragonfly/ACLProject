@@ -5,6 +5,7 @@
 #include "Game_View.h"
 #include <iostream>
 
+const int BAN_H = 64;
 const int WIN_H = 640;
 const int WIN_W = 640;
 const short TILE_BORDER = 16;
@@ -15,6 +16,7 @@ const char* filename = "src/ressources/PixelPackTOPDOWN1BIT-export.bmp";
 const char* playerfile = "src/ressources/HEROS_PixelPackTOPDOWN1BIT_Dog Idle D.bmp";
 const char* bombfile = "src/ressources/item1BIT_bomb-export.bmp";
 const char* enemyfile = "src/ressources/enemy.bmp";
+const char* breakwall = "src/ressources/breakwall.bmp";
 
 //Tous ces objets devraient etre des attributs de Game_View mais pour une raison obscure, une segfault apparait si on met
 // un seul de ces objets en attribut
@@ -25,6 +27,7 @@ typedef struct obj {
     SDL_Texture *player;
     SDL_Texture *enemy;
     SDL_Texture *bomb;
+    SDL_Texture *wall;
     SDL_Rect *tabtile;
     int cpt;
 } obj_t;
@@ -41,24 +44,34 @@ void Game_View::init() {
         fprintf(stdout,"Échec de l'initialisation de la SDL (%s)\n",SDL_GetError());
         exit(EXIT_FAILURE);
     }
+
     //Creation fenetre + rendu
     o.window = SDL_CreateWindow("Bomberman",SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED,WIN_W,WIN_H,SDL_WINDOW_SHOWN);
     o.renderer = SDL_CreateRenderer(o.window, -1, SDL_RENDERER_ACCELERATED);
     SDL_SetRenderDrawColor(o.renderer, 0, 0, 0, 255);
+
     //Creation du tileset
     SDL_Surface* tmp = SDL_LoadBMP(filename);
     o.tileset = SDL_CreateTextureFromSurface(o.renderer, tmp);
     SDL_FreeSurface(tmp);
+
     //Creation du player(
     tmp = SDL_LoadBMP(playerfile);
     Uint32 colorkey = SDL_MapRGB( tmp->format, 192, 255, 238); //Constantes poru la transparence
     SDL_SetColorKey(tmp, SDL_TRUE,colorkey);
     o.player = SDL_CreateTextureFromSurface(o.renderer, tmp);
     SDL_FreeSurface(tmp);
+
     //Creation de la bombe
     tmp = SDL_LoadBMP(bombfile);
     o.bomb = SDL_CreateTextureFromSurface(o.renderer, tmp);
     SDL_FreeSurface(tmp);
+
+    //Creation du wall
+    tmp = SDL_LoadBMP(breakwall);
+    o.wall = SDL_CreateTextureFromSurface(o.renderer, tmp);
+    SDL_FreeSurface(tmp);
+
     //Creation des rectangles
     o.tabtile = new SDL_Rect[RECT_SIZE];
     o.tabtile[0] = {0,16, TILE_BORDER, TILE_BORDER};
@@ -119,8 +132,11 @@ void Game_View::show_map(const Game& game) {
             if(t->is_floor()){
                 SDL_RenderCopy(o.renderer,o.tileset,&(o.tabtile[0]),&Rect_dest);
             }
-            else{
+            else if(t->is_ubreakable_wall()){
                 SDL_RenderCopy(o.renderer,o.tileset,&(o.tabtile[1]),&Rect_dest);
+            }
+            else{
+                SDL_RenderCopy(o.renderer,o.wall, nullptr,&Rect_dest);
             }
         }
     }
