@@ -45,8 +45,6 @@ bool Entity::canMove(char Direction) {
             std::cout << "Input inutile\n";
     }
     if (tile != nullptr && tile->is_walkable()) {
-        //std::cout << "move\n";
-        //std::cout << pos.first << " " << pos.second << std::endl;
         move(tile->get_x_position(), tile->get_y_position());
         return true;
     }

@@ -4,7 +4,6 @@
 #include "entities/Enemy.h"
 
 void Game::play() {
-    //std::cout << world.get_player();
     SDL_Event event;
     while(!gameover){
         im->process_input(*this, &event);                //On process les inputs du joueur
