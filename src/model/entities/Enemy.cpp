@@ -36,13 +36,13 @@ void Enemy::RandomMove() {
                 Direction = 'Z';
                 break;
             case 1:
-                Direction = 'S';
+                Direction = 'D';
                 break;
             case 2:
-                Direction = 'Q';
+                Direction = 'S';
                 break;
             case 3:
-                Direction = 'D';
+                Direction = 'Q';
                 break;
             default:
                 std::cout << "Erreur dans le choix de la nouvelle direction de l'ennemi" << std::endl;
