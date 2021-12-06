@@ -35,3 +35,7 @@ Tile::Tile(int x_, int y_) {
     y = y_;
 }
 
+Tile::~Tile(){
+    
+}
+
