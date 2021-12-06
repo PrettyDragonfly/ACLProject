@@ -14,7 +14,7 @@ Map::Map() {
     for (int i = 0; i < size; i++) {
         map[i] = new Tile *[size];
     }
-    readFile(this);
+    readFile(this, "map.txt");
     /**
     for (int i = 0; i < size; i++) {
         map[i] = new Tile*[size];

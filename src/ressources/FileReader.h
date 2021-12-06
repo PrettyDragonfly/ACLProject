@@ -6,6 +6,6 @@
 
 #include "../model/map/Map.h"
 
-int readFile(Map* map);
+int readFile(Map* map, string fileName);
 
 #endif //PROJETACL_FILEREADER_H

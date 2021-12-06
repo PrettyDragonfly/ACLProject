@@ -4,8 +4,8 @@
 
 using namespace std;
 
-int readFile(Map* map) {
-    string fileName = "map.txt";
+int readFile(Map* map, string fileName) {
+    //string fileName = "map.txt";
     char a;
     int i, j;
 
