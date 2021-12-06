@@ -6,7 +6,7 @@
 #include <ostream>
 
 class Map {
-    int size = 10;
+    int size = 20;
     Tile*** map;
 public:
     //Constructors

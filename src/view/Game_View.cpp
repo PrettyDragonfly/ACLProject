@@ -99,18 +99,18 @@ void Game_View::refresh(const Game& game){
 void Game_View::show_player(const Game& game) {
     int x = game.get_player()->get_x_position();
     int y = game.get_player()->get_y_position();
-    SDL_Rect Rect_dest = {0,0,TILE_BORDER*4,TILE_BORDER*4};
-    Rect_dest.x = x*TILE_BORDER*4;
-    Rect_dest.y = y*TILE_BORDER*4;
+    SDL_Rect Rect_dest = {0,0,TILE_BORDER*2,TILE_BORDER*2};
+    Rect_dest.x = x*TILE_BORDER*2;
+    Rect_dest.y = y*TILE_BORDER*2;
     SDL_RenderCopy(o.renderer,o.player,&(o.tabtile[3]),&Rect_dest);
 }
 
 void Game_View::show_enemy(const Game& game) {
     int x = game.get_enemy()->get_x_position();
     int y = game.get_enemy()->get_y_position();
-    SDL_Rect Rect_dest = {0,0,TILE_BORDER*4,TILE_BORDER*4};
-    Rect_dest.x = x*TILE_BORDER*4;
-    Rect_dest.y = y*TILE_BORDER*4;
+    SDL_Rect Rect_dest = {0,0,TILE_BORDER*2,TILE_BORDER*2};
+    Rect_dest.x = x*TILE_BORDER*2;
+    Rect_dest.y = y*TILE_BORDER*2;
     SDL_RenderCopy(o.renderer,o.enemy,&(o.tabtile[3]),&Rect_dest);
 }
 
@@ -119,11 +119,11 @@ void Game_View::show_map(const Game& game) {
     //fflush(stdout);
     int i,j;
     Map* map = game.get_map();
-    SDL_Rect Rect_dest = {0,0,TILE_BORDER*4,TILE_BORDER*4};
+    SDL_Rect Rect_dest = {0,0,TILE_BORDER*2,TILE_BORDER*2};
     for(i=0;i<map->get_size();i++){
         for(j=0;j<map->get_size();j++){
-            Rect_dest.x = i*TILE_BORDER*4;
-            Rect_dest.y = j*TILE_BORDER*4;
+            Rect_dest.x = i*TILE_BORDER*2;
+            Rect_dest.y = j*TILE_BORDER*2;
             Tile* t = map->get_tile(i,j);
             if (t == nullptr){
                 std::cout << "pointeur null\n";
@@ -151,9 +151,9 @@ void Game_View::show_bombs(const Game& game) {
         for(int i = 1; i <= taille; i++) {
             int x = tab[i]->get_x_position();
             int y = tab[i]->get_y_position();
-            SDL_Rect Rect_dest = {0,0,TILE_BORDER*4,TILE_BORDER*4};
-            Rect_dest.x = x*TILE_BORDER*4;
-            Rect_dest.y = y*TILE_BORDER*4;
+            SDL_Rect Rect_dest = {0,0,TILE_BORDER*2,TILE_BORDER*2};
+            Rect_dest.x = x*TILE_BORDER*2;
+            Rect_dest.y = y*TILE_BORDER*2;
             SDL_RenderCopy(o.renderer, o.bomb, &(o.tabtile[3]), &Rect_dest);
         }
     }
