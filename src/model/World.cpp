@@ -10,8 +10,8 @@ World::World() {
     enemy = new Enemy(5,5,5, this->map);
 
     //Creation des tableaux d'éléments
-    Bomb **tab_bomb;
-    Entity **tab_entite;
+    Bomb **tab_bomb = nullptr;
+    Entity **tab_entite = nullptr;
 
     //Initialisation des tableaux
     init_tab(tab_bomb);
@@ -61,7 +61,7 @@ Entity** World::get_tab_entite() const {
 
 
 //Fonctions qui permettent de gérer tableau d'entités
-Entity**World::free_entite(Entity** e) {
+void World::free_entite(Entity** e) {
     for (int i = 0; i < 50; i++) {
         free(e[i]);
     }
@@ -178,7 +178,7 @@ bool World::tab_entite_vide() {
 //###################### TABLEAU DE BOMBES ######################
 //###############################################################
 // Fonctions qui permettent de gérer tableau de bombes
-Bomb**World::free_tab(Bomb** b) {
+void World::free_tab(Bomb** b) {
     for (int i = 0; i < 50; i++) {
         free(b[i]);
     }

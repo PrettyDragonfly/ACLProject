@@ -24,7 +24,7 @@ public:
 
     //Fonctions de tableau d'entites
     Entity** get_tab_entite() const;
-    Entity** free_entite(Entity** e);
+    void free_entite(Entity** e);
     Entity** init_entite(Entity** tab);
     void add_entite(int x, int y, int life, int value);
     void add_entite(Entity* b);
@@ -33,7 +33,7 @@ public:
     bool tab_entite_vide();
 
     //Fonctions d'explosion de bombes
-    Bomb**free_tab(Bomb** b);
+    void free_tab(Bomb** b);
     Bomb**init_tab(Bomb** tab);
     Bomb** get_tab_bomb() const;
     void printTab(Bomb** tab);
