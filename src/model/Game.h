@@ -25,6 +25,7 @@ public:
 
     //Getters
     Entity * get_player() const;
+    Entity * get_enemy() const;
     Map* get_map() const;
     World* get_world();
     Bomb** get_tab_bomb() const;

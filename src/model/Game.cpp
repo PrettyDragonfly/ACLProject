@@ -26,6 +26,10 @@ Entity * Game::get_player() const{
     return world.get_player();
 }
 
+Entity * Game::get_enemy() const {
+    return world.get_enemy();
+}
+
 World* Game::get_world() {
     return &world;
 }
