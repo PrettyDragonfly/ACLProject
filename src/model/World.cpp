@@ -1,11 +1,13 @@
 #include "World.h"
 #include "entities/Player.h"
+#include "entities/Enemy.h"
 #include <iostream>
 
 World::World() {
     //std::cout << "World constructor called\n";
     map = new Map();
     player = new Player(1, 1, 10, this->map);
+    enemy = new Enemy(5,5,5, this->map);
     Bomb **tab_bomb;
     init_tab(tab_bomb);
 }
@@ -23,6 +25,10 @@ void World::update() {
  */
 Entity* World::get_player() const{
     return player;
+}
+
+Enemy* World::get_enemy() const {
+    return enemy;
 }
 
 World::~World() {

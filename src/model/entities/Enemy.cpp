@@ -23,8 +23,6 @@ void Enemy::setDirection(char dir) {
     Direction = dir;
 }
 
-void Enemy::Follow(Player* player) {}
-
 void Enemy::RandomMove() {
     int randomNumber;
     srand((unsigned int)time(0));
