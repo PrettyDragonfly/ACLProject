@@ -36,6 +36,6 @@ Tile::Tile(int x_, int y_) {
 }
 
 Tile::~Tile(){
-    
+
 }
 
