@@ -5,7 +5,9 @@
 #include <random>
 #include <iostream>
 
-Enemy::Enemy(int x, int y, int _ptVie, Map* map) : Entity( x, y, _ptVie, map) {}
+Enemy::Enemy(int x, int y, int _ptVie, Map* map) : Entity( x, y, _ptVie, map) {
+        set_value(2);
+}
 
 bool Enemy::isMoving() {
     return move;

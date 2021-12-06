@@ -63,6 +63,14 @@ void Entity::set_health(int newHealth) {
     health = newHealth;
 }
 
+int Entity::get_value() const {
+    return value;
+}
+
+void Entity::set_value(int v) {
+    value = v;
+}
+
 Entity::~Entity() = default;
 
 ostream & operator<<(ostream &os, const Entity *ent) {
