@@ -1,11 +1,13 @@
 #include "World.h"
 #include "entities/Player.h"
+#include "entities/Enemy.h"
 #include <iostream>
 
 World::World() {
     //std::cout << "World constructor called\n";
     map = new Map();
     player = new Player(1, 1, 10, this->map);
+    enemy = new Enemy(5,5,5, this->map);
     Bomb **tab_bomb;
     Entity **tab_entite;
     init_tab(tab_bomb);
@@ -27,6 +29,10 @@ void World::update() {
  */
 Entity* World::get_player() const{
     return player;
+}
+
+Enemy* World::get_enemy() const {
+    return enemy;
 }
 
 World::~World() {
@@ -190,12 +196,10 @@ Bomb**World::init_tab(Bomb** tab) {
 
     //Initialisation du tableau
     for (int i = 0; i < 50; i++) {
-        //std::cout << &(tab[i]) << endl;
         tab_bomb[i]->set_health(0);
         tab_bomb[i]->set_position(0, 0);
         tab_bomb[i]->setTime(0);
         tab_bomb[i]->setSize(0);
-        //std::cout << tab[i]->get_health() << endl;
     }
     return tab;
 }
@@ -228,10 +232,7 @@ bool World::tab_vide() {
 
 //Fonction pour ajouter une bombe (l'ajoute au tableau accessoirement)
 void World::add_bomb(int x, int y, int time, int size) {
-    //std::cout << "add_bomb" << endl;
-    //std::cout << tab_bomb << endl;
     int taille = (tab_bomb[0]->get_health())+1; //on recupere l'indice d'insertion
-    //std::cout << "ouioui" << endl;
     tab_bomb[0]->set_health(taille);
     tab_bomb[taille]->set_position(x, y);
     tab_bomb[taille]->setTime(time);
@@ -239,12 +240,9 @@ void World::add_bomb(int x, int y, int time, int size) {
 }
 
 void World::add_bomb(Bomb* b) {
-    
-   // std::cout << tab_bomb << endl;
+
     int taille = tab_bomb[0]->get_health()+1; //on recupere l'indice d'insertion
-    //std::cout << taille << endl;
     tab_bomb[0]->set_health(taille);
-    //std::cout << "add_bomb" << endl;
     tab_bomb[taille]->set_health(b->get_health());
     tab_bomb[taille]->set_position(b->get_x_position(), b->get_y_position());
     tab_bomb[taille]->setSize(b->getSize());

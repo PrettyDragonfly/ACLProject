@@ -14,6 +14,7 @@ const short BOMB_SIZE = 50;
 const char* filename = "src/ressources/PixelPackTOPDOWN1BIT-export.bmp";
 const char* playerfile = "src/ressources/HEROS_PixelPackTOPDOWN1BIT_Dog Idle D.bmp";
 const char* bombfile = "src/ressources/item1BIT_bomb-export.bmp";
+const char* enemyfile = "src/ressources/enemy.bmp";
 
 //Tous ces objets devraient etre des attributs de Game_View mais pour une raison obscure, une segfault apparait si on met
 // un seul de ces objets en attribut
@@ -22,6 +23,7 @@ typedef struct obj {
     SDL_Renderer *renderer;
     SDL_Texture *tileset;
     SDL_Texture *player;
+    SDL_Texture *enemy;
     SDL_Texture *bomb;
     SDL_Rect *tabtile;
     int cpt;
@@ -47,7 +49,7 @@ void Game_View::init() {
     SDL_Surface* tmp = SDL_LoadBMP(filename);
     o.tileset = SDL_CreateTextureFromSurface(o.renderer, tmp);
     SDL_FreeSurface(tmp);
-    //Creation du player
+    //Creation du player(
     tmp = SDL_LoadBMP(playerfile);
     Uint32 colorkey = SDL_MapRGB( tmp->format, 192, 255, 238); //Constantes poru la transparence
     SDL_SetColorKey(tmp, SDL_TRUE,colorkey);
@@ -63,6 +65,13 @@ void Game_View::init() {
     o.tabtile[1] = {80, 0, TILE_BORDER, TILE_BORDER};
     //Tile [2] = Tile du breakable wall
     o.tabtile[3] = {0,0,TILE_BORDER, TILE_BORDER};
+
+    //Creation de l'ennemi
+    tmp = SDL_LoadBMP(enemyfile);
+    colorkey = SDL_MapRGB( tmp->format, 255, 0, 0); //Constantes poru la transparence
+    SDL_SetColorKey(tmp, SDL_TRUE,colorkey);
+    o.enemy = SDL_CreateTextureFromSurface(o.renderer, tmp);
+    SDL_FreeSurface(tmp);
 }
 
 void Game_View::refresh(const Game& game){
@@ -70,6 +79,7 @@ void Game_View::refresh(const Game& game){
     show_map(game);
     show_bombs(game);
     show_player(game);
+    show_enemy(game);
     SDL_RenderPresent(o.renderer);
 }
 
@@ -80,6 +90,15 @@ void Game_View::show_player(const Game& game) {
     Rect_dest.x = x*TILE_BORDER*4;
     Rect_dest.y = y*TILE_BORDER*4;
     SDL_RenderCopy(o.renderer,o.player,&(o.tabtile[3]),&Rect_dest);
+}
+
+void Game_View::show_enemy(const Game& game) {
+    int x = game.get_enemy()->get_x_position();
+    int y = game.get_enemy()->get_y_position();
+    SDL_Rect Rect_dest = {0,0,TILE_BORDER*4,TILE_BORDER*4};
+    Rect_dest.x = x*TILE_BORDER*4;
+    Rect_dest.y = y*TILE_BORDER*4;
+    SDL_RenderCopy(o.renderer,o.enemy,&(o.tabtile[3]),&Rect_dest);
 }
 
 void Game_View::show_map(const Game& game) {

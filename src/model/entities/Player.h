@@ -10,9 +10,6 @@ public:
 
     Player(int x, int y, int _ptVie, Map* map);
     Player(const Player& p);
-    bool canMove(char Direction);
-    void move(int x, int y);
-
 };
 
 

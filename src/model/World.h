@@ -3,11 +3,13 @@
 
 #include "map/Map.h"
 #include "entities/Entity.h"
+#include "entities/Enemy.h"
 #include "entities/Bomb.h"
 
 class World {
     Map* map;
     Entity* player;
+    Enemy* enemy;
     Bomb** tab_bomb;
     Entity **tab_entite;
 
@@ -17,6 +19,7 @@ public:
     ~World();
     void update();
     Entity* get_player() const;
+    Enemy* get_enemy() const;
     Map* get_map() const;
 
     //Fonctions de tableau d'entites

@@ -20,8 +20,8 @@ public:
     ~Entity();
 
     //Functions members
-    virtual void move(int x, int y);
-    virtual bool canMove(char input) = 0;
+    void move(int x, int y);
+    bool canMove(char input);
 
     //Getters
     int get_health() const;

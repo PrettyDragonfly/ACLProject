@@ -1,13 +1,14 @@
 #include <iostream>
 #include "Game.h"
 #include "entities/Player.h"
+#include "entities/Enemy.h"
 
 void Game::play() {
-    //std::cout << world.get_player();
     SDL_Event event;
     while(!gameover){
         im->process_input(*this, &event);                //On process les inputs du joueur
         world.update();                     //On met à jour le monde en fonction
+        world.get_enemy()->RandomMove();
         gv->refresh(*this);
         //gv->show(*this);              //On met à jour et on affiche les vues
         if (world.get_player()->get_health() <= 0)
@@ -23,6 +24,10 @@ Game::Game() {
 
 Entity * Game::get_player() const{
     return world.get_player();
+}
+
+Entity * Game::get_enemy() const {
+    return world.get_enemy();
 }
 
 World* Game::get_world() {

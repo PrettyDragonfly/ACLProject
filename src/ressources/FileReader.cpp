@@ -1,11 +1,11 @@
 #include <iostream>
 #include <fstream>
-#include "model/map/Map.h"
+#include "FileReader.h"
 
 using namespace std;
 
-int readFile(Map* map) {
-    string fileName = "map.txt";
+int readFile(Map* map, string fileName) {
+    //string fileName = "map.txt";
     char a;
     int i, j;
 
