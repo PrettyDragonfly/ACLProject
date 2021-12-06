@@ -8,11 +8,17 @@ World::World() {
     map = new Map();
     player = new Player(1, 1, 10, this->map);
     enemy = new Enemy(5,5,5, this->map);
+
+    //Creation des tableaux d'éléments
     Bomb **tab_bomb;
     Entity **tab_entite;
+
+    //Initialisation des tableaux
     init_tab(tab_bomb);
     init_entite(tab_entite);
+    //Ajout des entités dans le tableau
     add_entite(player);
+    add_entite(enemy);
 }
 
 /**
@@ -334,7 +340,6 @@ void World::explode(int indice) {
     int taille = tab_bomb[0]->get_health();
     if (taille == indice) { 
         //il s'agit de la dernière bombe du tableau, on décrémente
-        std::cout << taille << endl;
         tab_bomb[0]->set_health(taille-1);
     } else {
         //on met la dernière bombe à la place de celle qui a explosé
@@ -374,7 +379,7 @@ void World::pose_bomb(char c) {
         int x = player->get_x_position();
         int y = player->get_y_position();
         map->setTile(x, y, 'B');
-        add_bomb(x, y, 2, 5);
+        add_bomb(x, y, 2, 2);
     }
     
 }
