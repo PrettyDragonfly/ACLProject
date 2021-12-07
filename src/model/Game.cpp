@@ -11,8 +11,16 @@ void Game::play() {
         world.get_enemy()->RandomMove();
         gv->refresh(*this);
         //gv->show(*this);              //On met à jour et on affiche les vues
-        if (world.get_player()->get_health() <= 0)
+        if (world.get_player()->get_health() <= 0) {
             gameover = true;
+            gv->show_badend();
+        }
+        /**
+        if (world.get_tab_entite()->get_health() <= 1){
+            gameover = true;
+            gv->showgoodend();
+        }
+        **/
         SDL_Delay(200);
     }
 }
@@ -61,4 +69,8 @@ void Game::set_gameover(bool b) {
 
 Bomb** Game::get_tab_bomb() const{
     return world.get_tab_bomb();
+}
+
+Entity** Game::get_ent_tab() const{
+    return world.get_tab_entite();
 }
