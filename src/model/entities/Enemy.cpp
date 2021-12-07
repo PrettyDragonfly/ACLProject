@@ -33,10 +33,6 @@ void Enemy::setStepCounter(int counter){
     stepCounter = counter;
 }
 
-/**Player* Enemy::getPlayer() {
-    return Player;
-}**/
-
 void Enemy::RandomMove() {
     int randomNumber;
     int nbStepMax;
