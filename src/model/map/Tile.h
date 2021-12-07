@@ -19,6 +19,7 @@ public:
     void set_position(int x_, int y_);
     int get_x_position();
     int get_y_position();
+    virtual ~Tile();
 };
 
 #endif //PROJET_TILE_H

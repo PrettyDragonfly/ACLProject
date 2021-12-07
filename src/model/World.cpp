@@ -6,8 +6,8 @@
 World::World() {
     //std::cout << "World constructor called\n";
     map = new Map();
-    player = new Player(1, 1, 10, this->map);
-    enemy = new Enemy(5,5,5, this->map);
+    player = new Player(1, 1, 3, this->map);
+    enemy = new Enemy(5,5,1, this->map);
 
     //Creation des tableaux d'éléments
     Bomb **tab_bomb = nullptr;
