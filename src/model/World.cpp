@@ -374,12 +374,10 @@ void World::check_bomb() {
 //Fonction qui permet de poser une bombe (ajout au tableau)
 //Pour l'instant pas bloquant pour déplacement sur bombe
 void World::pose_bomb(char c) {
-    std::cout << "Bombe posée\n";
     if (c == 'B') {
         int x = player->get_x_position();
         int y = player->get_y_position();
         map->setTile(x, y, 'B');
         add_bomb(x, y, 2, 2);
     }
-    
 }

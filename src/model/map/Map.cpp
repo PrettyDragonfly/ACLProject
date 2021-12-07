@@ -13,7 +13,7 @@ Map::Map() {
     for (int i = 0; i < size; i++) {
         map[i] = new Tile *[size];
     }
-    readFile(this, "map.txt");
+    readFile(this, "easy.txt");
     verify();
 }
 
