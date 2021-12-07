@@ -325,7 +325,7 @@ void World::explode(int indice) {
         //si on croise une tile cassable on la transforme en floor
         if (i <= max_explosion_y && i >= min_explosion_y && !(tuile->is_ubreakable_wall())) {
             //std::cout << x << " " << i << endl;
-            map->setTile(x, y, '0');
+            map->setTile(x, i, '0');
         }
         //on parcourt le tableau d'entités
         for (int j = 1; j <= tab_entite[0]->get_health(); j++) {
