@@ -200,3 +200,10 @@ void Game_View::show_badend() {
     SDL_Delay(2000);
 }
 
+void Game_View::show_goodend() {
+    SDL_RenderClear(o.renderer);
+    SDL_RenderCopy(o.renderer, o.goodend, NULL, NULL);
+    SDL_RenderPresent(o.renderer);
+    SDL_Delay(2000);
+}
+

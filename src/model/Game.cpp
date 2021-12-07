@@ -19,12 +19,10 @@ void Game::play() {
             gameover = true;
             gv->show_badend();
         }
-        /**
-        if (world.get_tab_entite()->get_health() <= 1){
+        if (world.get_enemy()->get_health() <= 0){
             gameover = true;
-            gv->showgoodend();
+            gv->show_goodend();
         }
-        **/
         SDL_Delay(200);
     }
 }
