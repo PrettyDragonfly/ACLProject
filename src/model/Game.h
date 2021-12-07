@@ -29,6 +29,7 @@ public:
     Map* get_map() const;
     World* get_world();
     Bomb** get_tab_bomb() const;
+    Entity** get_ent_tab() const;
 
     Map* getMap();
     void show() const;

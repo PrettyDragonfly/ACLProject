@@ -21,6 +21,8 @@ public:
     void show_bombs(const Game& game);
     void show_enemy(const Game& game);
     void show_hearts(const Game& game);
+    void show_badend();
+    void show_goodend();
     void create_tileset();
 };
 

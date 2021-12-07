@@ -18,6 +18,8 @@ const char* bombfile = "src/ressources/item1BIT_bomb-export.bmp";
 const char* enemyfile = "src/ressources/enemy.bmp";
 const char* breakwall = "src/ressources/breakwall.bmp";
 const char* heart = "src/ressources/heart.bmp";
+const char* end1 = "src/ressources/go_1.bmp";
+const char* end2 = "src/ressources/go_2.bmp";
 
 //Tous ces objets devraient etre des attributs de Game_View mais pour une raison obscure, une segfault apparait si on met
 // un seul de ces objets en attribut
@@ -30,6 +32,8 @@ typedef struct obj {
     SDL_Texture *bomb;
     SDL_Texture *wall;
     SDL_Texture *heart;
+    SDL_Texture *badend;
+    SDL_Texture *goodend;
     SDL_Rect *tabtile;
     int cpt;
 } obj_t;
@@ -93,6 +97,16 @@ void Game_View::init() {
     colorkey = SDL_MapRGB( tmp->format, 27, 0, 255); //Constantes poru la transparence
     SDL_SetColorKey(tmp, SDL_TRUE,colorkey);
     o.heart = SDL_CreateTextureFromSurface(o.renderer, tmp);
+    SDL_FreeSurface(tmp);
+
+    //Bad ending
+    tmp = SDL_LoadBMP(end1);
+    o.badend = SDL_CreateTextureFromSurface(o.renderer, tmp);
+    SDL_FreeSurface(tmp);
+
+    //Good ending
+    tmp = SDL_LoadBMP(end2);
+    o.goodend = SDL_CreateTextureFromSurface(o.renderer, tmp);
     SDL_FreeSurface(tmp);
 }
 
@@ -177,5 +191,12 @@ void Game_View::show_hearts(const Game& game){
         Rect_dest.y = 0;
         SDL_RenderCopy(o.renderer, o.heart, nullptr, &Rect_dest);
     }
+}
+
+void Game_View::show_badend() {
+    SDL_RenderClear(o.renderer);
+    SDL_RenderCopy(o.renderer, o.badend, NULL, NULL);
+    SDL_RenderPresent(o.renderer);
+    SDL_Delay(2000);
 }
 
