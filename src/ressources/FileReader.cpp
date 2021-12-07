@@ -1,11 +1,10 @@
 #include <iostream>
 #include <fstream>
-#include "model/map/Map.h"
+#include "FileReader.h"
 
 using namespace std;
 
-int readFile(Map* map) {
-    string fileName = "map.txt";
+int readFile(Map* map, string fileName) {
     char a;
     int i, j;
 
@@ -25,6 +24,7 @@ int readFile(Map* map) {
     }
     else {
         cout << "Can't open the file" << endl;
+        exit(1);
     }
     return 0;
 }

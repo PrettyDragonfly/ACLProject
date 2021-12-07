@@ -19,6 +19,10 @@ public:
     void show_map(const Game& game);
     void show_player(const Game& game);
     void show_bombs(const Game& game);
+    void show_enemy(const Game& game);
+    void show_hearts(const Game& game);
+    void show_badend();
+    void show_goodend();
     void create_tileset();
 };
 

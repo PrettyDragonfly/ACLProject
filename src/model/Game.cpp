@@ -1,17 +1,28 @@
 #include <iostream>
 #include "Game.h"
 #include "entities/Player.h"
+#include "entities/Enemy.h"
 
 void Game::play() {
-    //std::cout << world.get_player();
     SDL_Event event;
     while(!gameover){
         im->process_input(*this, &event);                //On process les inputs du joueur
         world.update();                     //On met à jour le monde en fonction
+        world.get_enemy()->RandomMove();
+        if ((world.get_player()->get_x_position() == world.get_enemy()->get_x_position())
+            && (world.get_player()->get_y_position() == world.get_enemy()->get_y_position())) {
+            world.get_player()->set_health(world.get_player()->get_health()-1);
+        }
         gv->refresh(*this);
         //gv->show(*this);              //On met à jour et on affiche les vues
-        if (world.get_player()->get_health() <= 0)
+        if (world.get_player()->get_health() <= 0) {
             gameover = true;
+            gv->show_badend();
+        }
+        if (world.get_enemy()->get_health() <= 0){
+            gameover = true;
+            gv->show_goodend();
+        }
         SDL_Delay(200);
     }
 }
@@ -23,6 +34,10 @@ Game::Game() {
 
 Entity * Game::get_player() const{
     return world.get_player();
+}
+
+Entity * Game::get_enemy() const {
+    return world.get_enemy();
 }
 
 World* Game::get_world() {
@@ -56,4 +71,8 @@ void Game::set_gameover(bool b) {
 
 Bomb** Game::get_tab_bomb() const{
     return world.get_tab_bomb();
+}
+
+Entity** Game::get_ent_tab() const{
+    return world.get_tab_entite();
 }
