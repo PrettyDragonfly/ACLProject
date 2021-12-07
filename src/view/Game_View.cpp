@@ -5,13 +5,11 @@
 #include "Game_View.h"
 #include <iostream>
 
-const int BAN_H = 64;
 const int WIN_H = 640;
 const int WIN_W = 640;
 const short TILE_BORDER = 16;
 const short TILE_SIZE = 3;
 const short RECT_SIZE = TILE_SIZE + 2;
-const short BOMB_SIZE = 50;
 const char* filename = "src/ressources/PixelPackTOPDOWN1BIT-export.bmp";
 const char* playerfile = "src/ressources/HEROS_PixelPackTOPDOWN1BIT_Dog Idle D.bmp";
 const char* bombfile = "src/ressources/item1BIT_bomb-export.bmp";

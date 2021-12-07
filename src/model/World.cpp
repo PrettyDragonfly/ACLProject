@@ -41,7 +41,6 @@ Enemy* World::get_enemy() const {
 }
 
 World::~World() {
-    std::cout << "World destructor called\n";
     delete player;
     free_tab(tab_bomb); 
     free_entite(tab_entite);
