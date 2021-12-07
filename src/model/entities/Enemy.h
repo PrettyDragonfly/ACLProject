@@ -11,6 +11,7 @@ class Enemy : public Entity{
 private:
     bool move = false;
     char Direction = 'Q';
+    int stepCounter = 0;
 public:
     Enemy(int x, int y, int _ptVie, Map* map);
     /**Random enemy's moves**/
@@ -19,6 +20,8 @@ public:
     void setMove(bool ismoving);
     char getDirection();
     void setDirection(char dir);
+    int getStepCounter();
+    void setStepCounter(int counter);
 };
 
 #endif //PROJETACL_ENEMY_H

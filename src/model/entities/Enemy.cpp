@@ -25,12 +25,25 @@ void Enemy::setDirection(char dir) {
     Direction = dir;
 }
 
+int Enemy::getStepCounter(){
+    return stepCounter;
+}
+
+void Enemy::setStepCounter(int counter){
+    stepCounter = counter;
+}
+
 void Enemy::RandomMove() {
     int randomNumber;
+    int nbStepMax;
     srand((unsigned int)time(0));
+    nbStepMax = rand() %10 +1;
+    setStepCounter(getStepCounter()+1);
     //If move is impossible, turn
-    if (!canMove(Direction)) {
+    if ((getStepCounter() >= nbStepMax) || (!canMove(Direction))) {
         randomNumber = rand() %4 +0;
+        setStepCounter(0);
+        std::cout << "Random number: " << randomNumber << std::endl;
         switch (randomNumber) {
             case 0:
                 Direction = 'Z';
