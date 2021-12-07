@@ -43,7 +43,6 @@ void Enemy::RandomMove() {
     if ((getStepCounter() >= nbStepMax) || (!canMove(Direction))) {
         randomNumber = rand() %4 +0;
         setStepCounter(0);
-        std::cout << "Random number: " << randomNumber << std::endl;
         switch (randomNumber) {
             case 0:
                 Direction = 'Z';

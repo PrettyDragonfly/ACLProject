@@ -48,9 +48,6 @@ bool Entity::canMove(char Direction) {
         move(tile->get_x_position(), tile->get_y_position());
         return true;
     }
-    else if(tile != nullptr && !tile->is_walkable()){
-        std::cout << "Mouvement impossible (vous foncez dans un mur)\n";
-    }
     return false;
 };
 
