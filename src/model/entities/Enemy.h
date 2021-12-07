@@ -14,7 +14,6 @@ private:
     int stepCounter = 0;
 public:
     Enemy(int x, int y, int _ptVie, Map* map);
-    /**Random enemy's moves**/
     void RandomMove();
     bool isMoving();
     void setMove(bool ismoving);
@@ -22,7 +21,6 @@ public:
     void setDirection(char dir);
     int getStepCounter();
     void setStepCounter(int counter);
-    //Player* getPlayer();
 };
 
 #endif //PROJETACL_ENEMY_H
