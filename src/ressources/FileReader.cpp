@@ -24,6 +24,7 @@ int readFile(Map* map, string fileName) {
     }
     else {
         cout << "Can't open the file" << endl;
+        exit(1);
     }
     return 0;
 }
