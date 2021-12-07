@@ -90,7 +90,7 @@ void Game_View::init() {
 
     //Coeur
     tmp = SDL_LoadBMP(heart);
-    colorkey = SDL_MapRGB( tmp->format, 255, 0, 0); //Constantes poru la transparence
+    colorkey = SDL_MapRGB( tmp->format, 27, 0, 255); //Constantes poru la transparence
     SDL_SetColorKey(tmp, SDL_TRUE,colorkey);
     o.heart = SDL_CreateTextureFromSurface(o.renderer, tmp);
     SDL_FreeSurface(tmp);
